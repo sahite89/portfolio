@@ -1,0 +1,38 @@
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-950/40 via-gray-950 to-accent-950/40"></div>
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s"></div>
+  </div>
+
+  <div appScrollReveal="fadeInUp" class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+    <p class="text-primary-400 font-mono text-sm sm:text-base mb-4 animate-fade-in">
+      {{ t().hero.greeting }}
+    </p>
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
+      <span class="bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent bg-[length:200%] animate-gradient">
+        Santiago López
+      </span>
+    </h1>
+    <h2 class="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-medium mb-6">
+      {{ t().hero.title }}
+    </h2>
+    <p class="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+      {{ t().hero.subtitle }}
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <button (click)="scrollToProjects()" class="px-8 py-3 bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-500 hover:to-accent-500 text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 animate-glow">
+        {{ t().hero.cta }}
+      </button>
+      <a href="#contact" class="px-8 py-3 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 font-medium rounded-full transition-all duration-300">
+        {{ t().nav.contact }}
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+    </svg>
+  </div>
+</section>
