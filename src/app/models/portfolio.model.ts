@@ -16,6 +16,17 @@ export interface Skill {
   category: string;
 }
 
+export interface TimelineItem {
+  type: 'work' | 'education';
+  title: string;
+  organization: string;
+  location: string;
+  startDate: string;
+  endDate: string | null;
+  description: string[];
+  technologies?: string[];
+}
+
 export interface SocialLink {
   name: string;
   url: string;
@@ -28,6 +39,7 @@ export interface Translation {
     about: string;
     projects: string;
     skills: string;
+    experience: string;
     contact: string;
   };
   hero: {
@@ -51,6 +63,11 @@ export interface Translation {
   skills: {
     title: string;
     subtitle: string;
+  };
+  experience: {
+    title: string;
+    subtitle: string;
+    present: string;
   };
   contact: {
     title: string;

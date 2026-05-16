@@ -6,7 +6,7 @@
       </button>
 
       <div class="hidden md:flex items-center gap-8">
-        @for (item of [['home', t().nav.home], ['about', t().nav.about], ['projects', t().nav.projects], ['skills', t().nav.skills], ['contact', t().nav.contact]]; track item[0]) {
+        @for (item of [['home', t().nav.home], ['about', t().nav.about], ['projects', t().nav.projects], ['skills', t().nav.skills], ['experience', t().nav.experience], ['contact', t().nav.contact]]; track item[0]) {
           <button
             (click)="scrollTo(item[0])"
             class="text-sm font-medium transition-colors duration-300"
@@ -49,7 +49,7 @@
 
     @if (isMenuOpen) {
       <div class="md:hidden pb-4">
-        @for (item of [['home', t().nav.home], ['about', t().nav.about], ['projects', t().nav.projects], ['skills', t().nav.skills], ['contact', t().nav.contact]]; track item[0]) {
+        @for (item of [['home', t().nav.home], ['about', t().nav.about], ['projects', t().nav.projects], ['skills', t().nav.skills], ['experience', t().nav.experience], ['contact', t().nav.contact]]; track item[0]) {
           <button
             (click)="scrollTo(item[0])"
             class="block w-full text-left px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
