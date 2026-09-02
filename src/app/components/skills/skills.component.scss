@@ -1,0 +1,113 @@
+@use '../../../mixins' as *;
+
+.skills-section {
+  position: relative;
+  background-color: var(--color-gray-900-30);
+  @include section-padding;
+}
+
+.skills-container {
+  @include container;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skills-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+
+  @include sm {
+    font-size: 2.25rem;
+  }
+}
+
+.skills-title-gradient {
+  @include gradient-text;
+}
+
+.skills-subtitle {
+  color: var(--color-gray-400);
+}
+
+.skills-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.skills-filter-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  @include pill-inactive;
+}
+
+.skills-filter-btn--active {
+  @include pill-active;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include sm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.skills-card {
+  @include card-base;
+  padding: 1.5rem;
+}
+
+.skills-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.skills-card-name {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.skills-card:hover .skills-card-name {
+  color: var(--color-primary-400);
+}
+
+.skills-card-level {
+  font-size: 0.875rem;
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--color-primary-400);
+}
+
+.skills-bar {
+  width: 100%;
+  background-color: var(--color-gray-900);
+  border-radius: 9999px;
+  height: 0.5rem;
+  overflow: hidden;
+}
+
+.skills-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-primary-500), var(--color-accent-500));
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+}

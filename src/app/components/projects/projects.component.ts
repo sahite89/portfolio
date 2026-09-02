@@ -8,6 +8,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
   standalone: true,
   imports: [NgClass, ScrollRevealDirective],
   templateUrl: './projects.component.html',
+  styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
   translationService = inject(TranslationService);

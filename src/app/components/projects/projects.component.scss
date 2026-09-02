@@ -1,0 +1,170 @@
+@use '../../../mixins' as *;
+
+.projects-section {
+  position: relative;
+  @include section-padding;
+}
+
+.projects-container {
+  @include container;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+
+  @include sm {
+    font-size: 2.25rem;
+  }
+}
+
+.projects-title-gradient {
+  @include gradient-text;
+}
+
+.projects-subtitle {
+  color: var(--color-gray-400);
+}
+
+.projects-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.projects-filter-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  @include pill-inactive;
+}
+
+.projects-filter-btn--active {
+  @include pill-active;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include sm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.projects-card {
+  background-color: var(--color-gray-800-50);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-gray-800);
+  transition: all 0.5s;
+
+  &:hover {
+    border-color: var(--color-primary-500-20);
+    box-shadow: 0 10px 15px -3px var(--color-primary-500-5);
+  }
+}
+
+.projects-card-cover {
+  height: 12rem;
+  background: linear-gradient(to bottom right, var(--color-gray-800), var(--color-gray-900));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.projects-card-icon-wrap {
+  color: var(--color-gray-700);
+  transition: transform 0.5s;
+}
+
+.projects-card:hover .projects-card-icon-wrap {
+  transform: scale(1.1);
+}
+
+.projects-card-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.projects-card-body {
+  padding: 1.5rem;
+}
+
+.projects-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+.projects-card:hover .projects-card-title {
+  color: var(--color-primary-400);
+}
+
+.projects-card-description {
+  color: var(--color-gray-400);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.projects-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.projects-card-tech-tag {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+  background-color: var(--color-gray-900);
+  color: var(--color-primary-300);
+  border-radius: 0.375rem;
+}
+
+.projects-card-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.projects-card-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--color-primary-400);
+  }
+}
+
+.projects-card-link--github:hover {
+  color: var(--color-gray-200);
+}
+
+.projects-card-link-icon {
+  width: 1rem;
+  height: 1rem;
+}

@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 import { TranslationService, Language } from '../../services/translation.service';
 
 @Component({
@@ -7,9 +8,11 @@ import { TranslationService, Language } from '../../services/translation.service
   standalone: true,
   imports: [NgClass],
   templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   translationService = inject(TranslationService);
+  router = inject(Router);
   isMenuOpen = false;
   activeSection = 'home';
 
@@ -26,9 +29,6 @@ export class HeaderComponent {
   scrollTo(section: string): void {
     this.activeSection = section;
     this.isMenuOpen = false;
-    const el = document.getElementById(section);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    this.router.navigate([], { fragment: section, replaceUrl: true });
   }
 }

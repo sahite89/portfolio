@@ -9,6 +9,7 @@ import { TimelineItem } from '../../models/portfolio.model';
   standalone: true,
   imports: [ScrollRevealDirective, NgClass],
   templateUrl: './experience.component.html',
+  styleUrl: './experience.component.scss',
 })
 export class ExperienceComponent {
   translationService = inject(TranslationService);

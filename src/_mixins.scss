@@ -1,0 +1,145 @@
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+@mixin sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include sm {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include lg {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@mixin container-narrow {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include sm {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include lg {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@mixin section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  @include sm {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@mixin gradient-text($from: var(--color-primary-400), $to: var(--color-accent-400)) {
+  background: linear-gradient(to right, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin gradient-text-via(
+  $from: var(--color-primary-400),
+  $via: var(--color-accent-400),
+  $to: var(--color-primary-400)
+) {
+  background: linear-gradient(to right, $from, $via, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin btn-gradient {
+  background: linear-gradient(to right, var(--color-primary-600), var(--color-accent-600));
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s;
+
+  &:hover {
+    background: linear-gradient(to right, var(--color-primary-500), var(--color-accent-500));
+    box-shadow: var(--shadow-primary-5-25);
+  }
+}
+
+@mixin btn-outline {
+  border: 1px solid var(--color-gray-700);
+  color: var(--color-gray-300);
+  font-weight: 500;
+  transition: all 0.3s;
+
+  &:hover {
+    color: #fff;
+    border-color: var(--color-gray-500);
+  }
+}
+
+@mixin pill-active {
+  background-color: var(--color-primary-600);
+  color: #fff;
+  box-shadow: var(--shadow-primary-5-25);
+}
+
+@mixin pill-inactive {
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-400);
+
+  &:hover {
+    color: var(--color-gray-200);
+    background-color: var(--color-gray-700);
+  }
+}
+
+@mixin card-base {
+  background-color: var(--color-gray-800-50);
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-gray-800);
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: var(--color-primary-500-20);
+  }
+}

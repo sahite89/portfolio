@@ -1,0 +1,77 @@
+:root {
+  /* Primary (Indigo) */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-primary-950: #1e1b4b;
+
+  /* Accent (Fuchsia) */
+  --color-accent-50: #fdf4ff;
+  --color-accent-100: #fae8ff;
+  --color-accent-200: #f5d0fe;
+  --color-accent-300: #f0abfc;
+  --color-accent-400: #e879f9;
+  --color-accent-500: #d946ef;
+  --color-accent-600: #c026d3;
+  --color-accent-700: #a21caf;
+  --color-accent-800: #86198f;
+  --color-accent-900: #701a75;
+  --color-accent-950: #4a044e;
+
+  /* Gray */
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Gray with alpha */
+  --color-gray-800-50: rgba(31, 41, 55, 0.5);
+  --color-gray-800-40: rgba(31, 41, 55, 0.4);
+  --color-gray-800-30: rgba(31, 41, 55, 0.3);
+  --color-gray-900-50: rgba(17, 24, 39, 0.5);
+  --color-gray-900-30: rgba(17, 24, 39, 0.3);
+  --color-gray-900-20: rgba(17, 24, 39, 0.2);
+  --color-gray-950-80: rgba(3, 7, 18, 0.8);
+
+  /* Primary with alpha */
+  --color-primary-500-10: rgba(99, 102, 241, 0.1);
+  --color-primary-500-20: rgba(99, 102, 241, 0.2);
+  --color-primary-500-25: rgba(99, 102, 241, 0.25);
+  --color-primary-500-50: rgba(99, 102, 241, 0.5);
+  --color-primary-900-50: rgba(49, 46, 129, 0.5);
+  --color-primary-950-40: rgba(30, 27, 75, 0.4);
+
+  /* Accent with alpha */
+  --color-accent-500-10: rgba(217, 70, 239, 0.1);
+  --color-accent-900-50: rgba(112, 26, 117, 0.5);
+  --color-accent-950-40: rgba(74, 4, 78, 0.4);
+
+  /* Green (success) */
+  --color-green-300: #86efac;
+  --color-green-700: #15803d;
+  --color-green-900-50: rgba(20, 83, 45, 0.5);
+
+  /* Red (error) */
+  --color-red-300: #fca5a5;
+  --color-red-700: #b91c1c;
+  --color-red-900-50: rgba(127, 29, 29, 0.5);
+
+  /* Shadows */
+  --shadow-primary-5-5: 0 20px 25px -5px rgba(99, 102, 241, 0.05), 0 8px 10px -6px rgba(99, 102, 241, 0.05);
+  --shadow-primary-5-20: 0 10px 15px -3px rgba(99, 102, 241, 0.2), 0 4px 6px -4px rgba(99, 102, 241, 0.2);
+  --shadow-primary-5-25: 0 10px 15px -3px rgba(99, 102, 241, 0.25), 0 4px 6px -4px rgba(99, 102, 241, 0.25);
+  --shadow-accent-5-20: 0 10px 15px -3px rgba(217, 70, 239, 0.2), 0 4px 6px -4px rgba(217, 70, 239, 0.2);
+}

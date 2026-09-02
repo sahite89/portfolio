@@ -7,6 +7,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
   standalone: true,
   imports: [ScrollRevealDirective],
   templateUrl: './hero.component.html',
+  styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
   translationService = inject(TranslationService);
