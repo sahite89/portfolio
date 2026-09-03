@@ -71,43 +71,25 @@
 
 .skills-card {
   @include card-base;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
   padding: 1.5rem;
 }
 
-.skills-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+.skills-card-icon {
+  font-size: 3rem;
 }
 
 .skills-card-name {
   color: #fff;
   font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
   transition: color 0.3s;
 }
 
 .skills-card:hover .skills-card-name {
   color: var(--color-primary-400);
-}
-
-.skills-card-level {
-  font-size: 0.875rem;
-  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
-  color: var(--color-primary-400);
-}
-
-.skills-bar {
-  width: 100%;
-  background-color: var(--color-gray-900);
-  border-radius: 9999px;
-  height: 0.5rem;
-  overflow: hidden;
-}
-
-.skills-bar-fill {
-  height: 100%;
-  background: linear-gradient(to right, var(--color-primary-500), var(--color-accent-500));
-  border-radius: 9999px;
-  transition: width 1s ease-out;
 }

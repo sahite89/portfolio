@@ -24,16 +24,8 @@
     <div class="skills-grid">
       @for (skill of filteredSkills; track skill.name; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 80" class="skills-card group">
-          <div class="skills-card-header">
-            <h3 class="skills-card-name">{{ skill.name }}</h3>
-            <span class="skills-card-level">{{ skill.level }}%</span>
-          </div>
-          <div class="skills-bar">
-            <div
-              class="skills-bar-fill"
-              [style.width.%]="skill.level"
-            ></div>
-          </div>
+          <i [ngClass]="skill.deviconClass + ' colored skills-card-icon'"></i>
+          <span class="skills-card-name">{{ skill.name }}</span>
         </div>
       }
     </div>

@@ -16,21 +16,90 @@ export class SkillsComponent {
   activeCategory = 'all';
 
   skills = [
-    { name: 'Angular', level: 90, icon: 'code', category: 'frontend' },
-    { name: 'TypeScript', level: 85, icon: 'code', category: 'frontend' },
-    { name: 'JavaScript', level: 90, icon: 'code', category: 'frontend' },
-    { name: 'React', level: 75, icon: 'code', category: 'frontend' },
-    { name: 'Tailwind CSS', level: 85, icon: 'style', category: 'frontend' },
-    { name: 'HTML/CSS', level: 95, icon: 'style', category: 'frontend' },
-    { name: 'Node.js', level: 85, icon: 'server', category: 'backend' },
-    { name: 'Express', level: 80, icon: 'server', category: 'backend' },
-    { name: 'Python', level: 70, icon: 'server', category: 'backend' },
-    { name: 'PostgreSQL', level: 75, icon: 'database', category: 'backend' },
-    { name: 'MongoDB', level: 80, icon: 'database', category: 'backend' },
-    { name: 'Docker', level: 65, icon: 'devops', category: 'backend' },
-    { name: 'Git', level: 85, icon: 'tools', category: 'tools' },
-    { name: 'VS Code', level: 90, icon: 'tools', category: 'tools' },
-    { name: 'Figma', level: 60, icon: 'design', category: 'tools' },
+    {
+      name: 'Angular',
+      level: 90,
+      deviconClass: 'devicon-angular-plain',
+      category: 'frontend',
+    },
+    {
+      name: 'TypeScript',
+      level: 85,
+      deviconClass: 'devicon-typescript-plain',
+      category: 'frontend',
+    },
+    {
+      name: 'JavaScript',
+      level: 90,
+      deviconClass: 'devicon-javascript-plain',
+      category: 'frontend',
+    },
+    {
+      name: 'HTML/CSS',
+      level: 95,
+      deviconClass: 'devicon-html5-plain devicon-css3-plain',
+      category: 'frontend',
+    },
+    {
+      name: '.Net',
+      level: 85,
+      deviconClass: 'devicon-dotnetcore-plain',
+      category: 'backend',
+    },
+    {
+      name: 'Entity Framework',
+      level: 80,
+      deviconClass: 'devicon-entityframeworkcore-plain colored',
+      category: 'backend',
+    },
+    {
+      name: 'SQL Server',
+      level: 80,
+      deviconClass: 'devicon-microsoftsqlserver-plain-wordmark',
+      category: 'backend',
+    },
+    {
+      name: 'PostgreSQL',
+      level: 75,
+      deviconClass: 'devicon-postgresql-plain',
+      category: 'backend',
+    },
+    {
+      name: 'Docker',
+      level: 65,
+      deviconClass: 'devicon-docker-plain',
+      category: 'backend',
+    },
+    {
+      name: 'Git',
+      level: 85,
+      deviconClass: 'devicon-git-plain',
+      category: 'tools',
+    },
+    {
+      name: 'VS Code',
+      level: 90,
+      deviconClass: 'devicon-vscode-plain',
+      category: 'tools',
+    },
+    {
+      name: 'Visual Studio',
+      level: 90,
+      deviconClass: 'devicon-visualstudio-plain colored',
+      category: 'tools',
+    },
+    {
+      name: 'GitLab',
+      level: 60,
+      deviconClass: 'devicon-gitlab-plain colored',
+      category: 'tools',
+    },
+    {
+      name: 'Jira',
+      level: 70,
+      deviconClass: 'devicon-jira-plain colored',
+      category: 'tools',
+    },
   ];
 
   categories = [
@@ -42,7 +111,7 @@ export class SkillsComponent {
 
   get filteredSkills() {
     if (this.activeCategory === 'all') return this.skills;
-    return this.skills.filter(s => s.category === this.activeCategory);
+    return this.skills.filter((s) => s.category === this.activeCategory);
   }
 
   setCategory(category: string): void {
