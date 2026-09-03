@@ -2,7 +2,7 @@
   <nav class="header-nav">
     <div class="header-inner">
       <button (click)="scrollTo('home')" class="header-logo">
-        &lt;Portfolio /&gt;
+        <img src="/logo-sh.svg" alt="SL" class="header-logo-img" />
       </button>
 
       <div class="header-links">
@@ -35,7 +35,7 @@
           </button>
         </div>
 
-        <button (click)="toggleMenu()" class="header-menu-toggle">
+        <button  (click)="toggleMenu()" class="header-menu-toggle">
           <svg class="header-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             @if (isMenuOpen) {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
