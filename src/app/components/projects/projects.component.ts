@@ -33,7 +33,7 @@ export class ProjectsComponent {
       technologies: ['Angular', 'TypeScript'],
       image: '',
       category: 'frontend',
-      demoUrl: '#',
+      demoUrl: 'https://santihijazo.netlify.app',
       githubUrl: 'https://github.com/sahite89/portfolio',
     },
   ];
