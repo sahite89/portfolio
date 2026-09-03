@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import emailjs from '@emailjs/browser';
 import { TranslationService } from '../../services/translation.service';
+import { EmailService } from '../../services/email.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 
 @Component({
@@ -12,6 +12,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
+  private emailService = inject(EmailService);
   translationService = inject(TranslationService);
   t = this.translationService.translate;
   submitted = false;
@@ -32,16 +33,11 @@ export class ContactComponent {
     this.submitted = false;
 
     try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
-          from_name: this.formData.name,
-          from_email: this.formData.email,
-          message: this.formData.message,
-        },
-        'YOUR_PUBLIC_KEY'
-      );
+      await this.emailService.sendContactEmail({
+        fromName: this.formData.name,
+        fromEmail: this.formData.email,
+        message: this.formData.message,
+      });
       this.submitted = true;
       this.formData = { name: '', email: '', message: '' };
       contactForm.resetForm();
