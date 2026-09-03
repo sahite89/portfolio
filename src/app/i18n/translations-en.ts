@@ -12,14 +12,15 @@ export const translationsEN: Translation = {
   hero: {
     greeting: 'Hi, I\'m',
     title: 'Full Stack Developer',
-    subtitle: 'I build modern, scalable web applications with Angular, Node.js and cloud technologies.',
+    subtitle: 'I build modern, scalable web applications with Angular, .NET and cloud technologies.',
     cta: 'View projects',
   },
   about: {
     title: 'About me',
     description: [
-      'I\'m a full stack developer passionate about creating unique digital experiences. With experience in Angular, Node.js and databases, I enjoy building complete applications from frontend to backend.',
-      'I love learning new technologies and taking on challenges that help me grow professionally. When I\'m not coding, I\'m exploring new tools or contributing to open source projects.',
+      'I\’m a Full Stack Software Developer specialized in .NET and Angular, with experience developing and maintaining web applications and corporate solutions within Agile environments.',
+      'Throughout my career, I have worked on projects related to retail, e-commerce, and internal systems, contributing to different areas of the development process, from APIs and backend services to frontend applications, databases, and system integrations. I\’m particularly interested in building clear, maintainable, and scalable solutions, with a strong focus on code quality and the long-term evolution of projects.',
+      'I\’m motivated by continuous learning, taking on new technical challenges, and exploring new technologies that allow me to keep growing professionally and bring value to every project I work on.',
     ],
     downloadCv: 'Download CV',
   },
@@ -47,6 +48,7 @@ export const translationsEN: Translation = {
     message: 'Message',
     send: 'Send message',
     success: 'Message sent successfully!',
+    error: 'Error sending the message. Please try again later.'
   },
   footer: {
     rights: 'All rights reserved.',

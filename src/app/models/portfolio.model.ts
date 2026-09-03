@@ -12,7 +12,7 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number;
-  icon: string;
+  deviconClass: string;
   category: string;
 }
 
@@ -77,6 +77,7 @@ export interface Translation {
     message: string;
     send: string;
     success: string;
+    error: string;
   };
   footer: {
     rights: string;

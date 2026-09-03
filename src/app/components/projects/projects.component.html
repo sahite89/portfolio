@@ -33,7 +33,7 @@
           </div>
           <div class="projects-card-body">
             <h3 class="projects-card-title">{{ project.title }}</h3>
-            <p class="projects-card-description line-clamp-2">{{ project.description }}</p>
+            <p class="projects-card-description">{{ project.description }}</p>
             <div class="projects-card-tech">
               @for (tech of project.technologies; track tech) {
                 <span class="projects-card-tech-tag">{{ tech }}</span>
