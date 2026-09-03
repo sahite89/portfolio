@@ -26,7 +26,6 @@ describe('FooterComponent', () => {
 
   it('should render built with text', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Angular');
-    expect(compiled.textContent).toContain('Tailwind');
+    expect(compiled.textContent).toContain('Santiago Hijazo');
   });
 });

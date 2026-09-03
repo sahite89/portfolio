@@ -27,6 +27,6 @@ describe('HeroComponent', () => {
 
   it('should render name', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Santiago López');
+    expect(compiled.textContent).toContain('Santiago Hijazo');
   });
 });
