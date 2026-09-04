@@ -81,4 +81,8 @@ export const translationsEN: Translation = {
   footer: {
     rights: 'All rights reserved.',
   },
+  seo: {
+    title: 'Santiago Hijazo | Full Stack Developer',
+    description: 'Santiago Hijazo\'s portfolio — Full Stack Developer specialized in Angular, .NET and cloud technologies. Modern, scalable web applications.',
+  },
 };

@@ -23,7 +23,7 @@ export class ProjectsComponent {
       technologies: ['.NET', 'SQL Server', 'Swagger'],
       image: '',
       category: 'backend',
-      demoUrl: '#',
+      demoUrl: '',
       githubUrl: 'https://github.com/sahite89/MangaTracker',
     },
     {

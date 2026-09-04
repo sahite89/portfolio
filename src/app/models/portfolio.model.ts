@@ -86,4 +86,8 @@ export interface Translation {
   footer: {
     rights: string;
   };
+  seo: {
+    title: string;
+    description: string;
+  };
 }

@@ -82,4 +82,8 @@ export const translationsES: Translation = {
   footer: {
     rights: 'Todos los derechos reservados.',
   },
+  seo: {
+    title: 'Santiago Hijazo | Desarrollador Full Stack',
+    description: 'Portfolio de Santiago Hijazo — Desarrollador Full Stack especializado en Angular, .NET y tecnologías cloud. Aplicaciones web modernas y escalables.',
+  },
 };
