@@ -1,4 +1,4 @@
-<section id="home" class="hero">
+<section id="home" [attr.aria-label]="t().a11y.home" class="hero">
   <div class="hero-background"></div>
   <div class="hero-blobs">
     <div class="hero-blob hero-blob--primary"></div>
@@ -11,7 +11,7 @@
     </p>
     <h1 class="hero-name">
       <span class="hero-name-gradient animate-gradient">
-        Santiago Hijazo Tejada
+        Santiago Hijazo
       </span>
     </h1>
     <h2 class="hero-title">
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="hero-scroll animate-bounce">
+  <div class="hero-scroll animate-bounce" aria-hidden="true">
     <svg class="hero-scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
     </svg>

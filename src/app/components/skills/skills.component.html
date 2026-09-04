@@ -1,4 +1,4 @@
-<section id="skills" class="skills-section">
+<section id="skills" [attr.aria-label]="t().a11y.skills" class="skills-section">
   <div class="skills-container">
     <div appScrollReveal="fadeInUp" class="skills-header">
       <h2 class="skills-title">
@@ -15,6 +15,7 @@
           (click)="setCategory(cat.key)"
           class="skills-filter-btn"
           [ngClass]="activeCategory === cat.key ? 'skills-filter-btn--active' : ''"
+          [attr.aria-pressed]="activeCategory === cat.key"
         >
           {{ cat.label }}
         </button>

@@ -1,8 +1,8 @@
 <header class="header">
   <nav class="header-nav">
     <div class="header-inner">
-      <button (click)="scrollTo('home')" class="header-logo">
-        <img src="/logo-sh.svg" alt="SL" class="header-logo-img" />
+      <button (click)="scrollTo('home')" class="header-logo" [attr.aria-label]="t().a11y.logo">
+        <img src="/logo-sh.svg" [attr.alt]="t().a11y.logo" class="header-logo-img" />
       </button>
 
       <div class="header-links">
@@ -11,6 +11,7 @@
             (click)="scrollTo(item[0])"
             class="header-link"
             [ngClass]="activeSection === item[0] ? 'header-link--active' : ''"
+            [attr.aria-current]="activeSection === item[0] ? 'true' : null"
           >
             {{ item[1] }}
           </button>
@@ -23,6 +24,8 @@
             (click)="switchLanguage('es')"
             class="header-lang-btn"
             [ngClass]="translationService.currentLanguage === 'es' ? 'header-lang-btn--active' : ''"
+            [attr.aria-pressed]="translationService.currentLanguage === 'es'"
+            aria-label="Español"
           >
             ES
           </button>
@@ -30,13 +33,21 @@
             (click)="switchLanguage('en')"
             class="header-lang-btn"
             [ngClass]="translationService.currentLanguage === 'en' ? 'header-lang-btn--active' : ''"
+            [attr.aria-pressed]="translationService.currentLanguage === 'en'"
+            aria-label="English"
           >
             EN
           </button>
         </div>
 
-        <button  (click)="toggleMenu()" class="header-menu-toggle">
-          <svg class="header-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button
+          (click)="toggleMenu()"
+          class="header-menu-toggle"
+          [attr.aria-label]="isMenuOpen ? t().a11y.closeMenu : t().a11y.openMenu"
+          [attr.aria-expanded]="isMenuOpen"
+          aria-controls="header-mobile-menu"
+        >
+          <svg class="header-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             @if (isMenuOpen) {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             } @else {
@@ -48,11 +59,12 @@
     </div>
 
     @if (isMenuOpen) {
-      <div class="header-mobile-menu">
+      <div id="header-mobile-menu" class="header-mobile-menu">
         @for (item of [['home', t().nav.home], ['about', t().nav.about], ['projects', t().nav.projects], ['skills', t().nav.skills], ['experience', t().nav.experience], ['contact', t().nav.contact]]; track item[0]) {
           <button
             (click)="scrollTo(item[0])"
             class="header-mobile-link"
+            [attr.aria-current]="activeSection === item[0] ? 'true' : null"
           >
             {{ item[1] }}
           </button>

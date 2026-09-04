@@ -29,6 +29,6 @@ describe('AboutComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const link = compiled.querySelector('a[download]');
     expect(link).toBeTruthy();
-    expect(link?.getAttribute('href')).toBe('assets/cv-santiago-lopez.pdf');
+    expect(link?.getAttribute('href')).toBe('cv-santiago-lopez.pdf');
   });
 });

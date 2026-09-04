@@ -13,6 +13,11 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
   constructor(private el: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      this.el.nativeElement.style.opacity = '1';
+      return;
+    }
+
     this.el.nativeElement.style.opacity = '0';
 
     this.observer = new IntersectionObserver(

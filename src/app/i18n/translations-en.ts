@@ -1,6 +1,22 @@
 import { Translation } from '../models/portfolio.model';
 
 export const translationsEN: Translation = {
+  a11y: {
+    skipToContent: 'Skip to main content',
+    menuToggle: 'Menu',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    logo: 'Santiago Hijazo — Home',
+    github: 'GitHub',
+    linkedin: 'LinkedIn',
+    email: 'Email',
+    home: 'Home',
+    about: 'About',
+    projects: 'Projects',
+    skills: 'Skills',
+    experience: 'Experience',
+    contact: 'Contact',
+  },
   nav: {
     home: 'Home',
     about: 'About',
@@ -28,17 +44,26 @@ export const translationsEN: Translation = {
     title: 'Projects',
     subtitle: 'Some of the work I\'ve done',
     all: 'All',
+    frontend: 'Frontend',
+    backend: 'Backend',
+    fullstack: 'Full Stack',
     demo: 'Demo',
     code: 'Code',
   },
   skills: {
     title: 'Skills',
     subtitle: 'Technologies and tools I work with',
+    all: 'All',
+    frontend: 'Frontend',
+    backend: 'Backend',
+    tools: 'Tools',
   },
   experience: {
     title: 'Experience & Education',
     subtitle: 'My professional and academic background',
     present: 'Present',
+    work: 'Work',
+    education: 'Education',
   },
   contact: {
     title: 'Contact',
@@ -48,10 +73,12 @@ export const translationsEN: Translation = {
     message: 'Message',
     send: 'Send message',
     success: 'Message sent successfully!',
-    error: 'Error sending the message. Please try again later.'
+    error: 'Error sending the message. Please try again later.',
+    placeholderName: 'Your name',
+    placeholderEmail: 'your@email.com',
+    placeholderMessage: 'Your message...',
   },
   footer: {
     rights: 'All rights reserved.',
-    builtWith: 'Built with',
   },
 };

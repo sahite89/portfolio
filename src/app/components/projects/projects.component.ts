@@ -43,6 +43,15 @@ export class ProjectsComponent {
     return this.projects.filter((p) => p.category === this.activeFilter);
   }
 
+  get filters() {
+    return [
+      { key: 'all', label: this.t().projects.all },
+      { key: 'frontend', label: this.t().projects.frontend },
+      { key: 'backend', label: this.t().projects.backend },
+      { key: 'fullstack', label: this.t().projects.fullstack },
+    ];
+  }
+
   setFilter(category: string): void {
     this.activeFilter = category;
   }

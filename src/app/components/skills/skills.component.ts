@@ -102,12 +102,14 @@ export class SkillsComponent {
     },
   ];
 
-  categories = [
-    { key: 'all', label: 'Todas' },
-    { key: 'frontend', label: 'Frontend' },
-    { key: 'backend', label: 'Backend' },
-    { key: 'tools', label: 'Herramientas' },
-  ];
+  get categories() {
+    return [
+      { key: 'all', label: this.t().skills.all },
+      { key: 'frontend', label: this.t().skills.frontend },
+      { key: 'backend', label: this.t().skills.backend },
+      { key: 'tools', label: this.t().skills.tools },
+    ];
+  }
 
   get filteredSkills() {
     if (this.activeCategory === 'all') return this.skills;

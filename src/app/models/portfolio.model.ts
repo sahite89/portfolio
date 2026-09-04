@@ -1,21 +1,3 @@
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  imageUrl: string;
-  demoUrl?: string;
-  githubUrl?: string;
-  category: string;
-}
-
-export interface Skill {
-  name: string;
-  level: number;
-  deviconClass: string;
-  category: string;
-}
-
 export interface TimelineItem {
   type: 'work' | 'education';
   title: string;
@@ -27,13 +9,23 @@ export interface TimelineItem {
   technologies?: string[];
 }
 
-export interface SocialLink {
-  name: string;
-  url: string;
-  icon: string;
-}
-
 export interface Translation {
+  a11y: {
+    skipToContent: string;
+    menuToggle: string;
+    openMenu: string;
+    closeMenu: string;
+    logo: string;
+    github: string;
+    linkedin: string;
+    email: string;
+    home: string;
+    about: string;
+    projects: string;
+    skills: string;
+    experience: string;
+    contact: string;
+  };
   nav: {
     home: string;
     about: string;
@@ -57,17 +49,26 @@ export interface Translation {
     title: string;
     subtitle: string;
     all: string;
+    frontend: string;
+    backend: string;
+    fullstack: string;
     demo: string;
     code: string;
   };
   skills: {
     title: string;
     subtitle: string;
+    all: string;
+    frontend: string;
+    backend: string;
+    tools: string;
   };
   experience: {
     title: string;
     subtitle: string;
     present: string;
+    work: string;
+    education: string;
   };
   contact: {
     title: string;
@@ -78,9 +79,11 @@ export interface Translation {
     send: string;
     success: string;
     error: string;
+    placeholderName: string;
+    placeholderEmail: string;
+    placeholderMessage: string;
   };
   footer: {
     rights: string;
-    builtWith: string;
   };
 }

@@ -78,7 +78,11 @@
 
   &:focus {
     border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 1px var(--color-primary-500);
+  }
+
+  &:focus-visible {
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 2px var(--color-primary-400);
   }
 }
 

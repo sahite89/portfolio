@@ -1,4 +1,4 @@
-<section id="experience" class="experience-section">
+<section id="experience" [attr.aria-label]="t().a11y.experience" class="experience-section">
   <div class="experience-container">
     <div appScrollReveal="fadeInUp" class="experience-header">
       <h2 class="experience-title">
@@ -36,7 +36,7 @@
               <div class="timeline-card-badge-row">
                 <span class="timeline-badge"
                       [ngClass]="item.type === 'work' ? 'timeline-badge--work' : 'timeline-badge--education'">
-                  {{ item.type === 'work' ? (translationService.currentLanguage === 'es' ? 'Trabajo' : 'Work') : (translationService.currentLanguage === 'es' ? 'Estudio' : 'Education') }}
+                  {{ item.type === 'work' ? t().experience.work : t().experience.education }}
                 </span>
                 <span class="timeline-dates">
                   {{ item.startDate }} — {{ item.endDate ?? t().experience.present }}

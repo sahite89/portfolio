@@ -1,4 +1,4 @@
-<section id="projects" class="projects-section">
+<section id="projects" [attr.aria-label]="t().a11y.projects" class="projects-section">
   <div class="projects-container">
     <div appScrollReveal="fadeInUp" class="projects-header">
       <h2 class="projects-title">
@@ -10,13 +10,14 @@
     </div>
 
     <div appScrollReveal="fadeInUp" [delay]="100" class="projects-filters">
-      @for (filter of [['all', t().projects.all], ['frontend', 'Frontend'], ['backend', 'Backend'], ['fullstack', 'Full Stack']]; track filter[0]) {
+      @for (filter of filters; track filter.key) {
         <button
-          (click)="setFilter(filter[0])"
+          (click)="setFilter(filter.key)"
           class="projects-filter-btn"
-          [ngClass]="activeFilter === filter[0] ? 'projects-filter-btn--active' : ''"
+          [ngClass]="activeFilter === filter.key ? 'projects-filter-btn--active' : ''"
+          [attr.aria-pressed]="activeFilter === filter.key"
         >
-          {{ filter[1] }}
+          {{ filter.label }}
         </button>
       }
     </div>

@@ -24,5 +24,6 @@ export class TranslationService {
   switchLanguage(lang: Language): void {
     this.currentLang.set(lang);
     this.translate.set(this.translations[lang]);
+    document.documentElement.lang = lang;
   }
 }
