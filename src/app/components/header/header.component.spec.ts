@@ -22,11 +22,11 @@ describe('HeaderComponent', () => {
   });
 
   it('should toggle menu', () => {
-    expect(component.isMenuOpen).toBeFalse();
+    expect(component.isMenuOpen()).toBeFalse();
     component.toggleMenu();
-    expect(component.isMenuOpen).toBeTrue();
+    expect(component.isMenuOpen()).toBeTrue();
     component.toggleMenu();
-    expect(component.isMenuOpen).toBeFalse();
+    expect(component.isMenuOpen()).toBeFalse();
   });
 
   it('should switch language', () => {

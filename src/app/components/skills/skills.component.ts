@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, inject, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
@@ -6,6 +6,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 @Component({
   selector: 'app-skills',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass, ScrollRevealDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
@@ -13,7 +14,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 export class SkillsComponent {
   translationService = inject(TranslationService);
   t = this.translationService.translate;
-  activeCategory = 'all';
+  activeCategory = signal('all');
 
   skills = [
     {
@@ -111,12 +112,12 @@ export class SkillsComponent {
     ];
   }
 
-  get filteredSkills() {
-    if (this.activeCategory === 'all') return this.skills;
-    return this.skills.filter((s) => s.category === this.activeCategory);
-  }
+  filteredSkills = computed(() => {
+    if (this.activeCategory() === 'all') return this.skills;
+    return this.skills.filter((s) => s.category === this.activeCategory());
+  });
 
   setCategory(category: string): void {
-    this.activeCategory = category;
+    this.activeCategory.set(category);
   }
 }

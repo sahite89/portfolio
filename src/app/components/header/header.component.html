@@ -10,8 +10,8 @@
           <button
             (click)="scrollTo(item[0])"
             class="header-link"
-            [ngClass]="activeSection === item[0] ? 'header-link--active' : ''"
-            [attr.aria-current]="activeSection === item[0] ? 'true' : null"
+            [ngClass]="activeSection() === item[0] ? 'header-link--active' : ''"
+            [attr.aria-current]="activeSection() === item[0] ? 'true' : null"
           >
             {{ item[1] }}
           </button>
@@ -43,12 +43,12 @@
         <button
           (click)="toggleMenu()"
           class="header-menu-toggle"
-          [attr.aria-label]="isMenuOpen ? t().a11y.closeMenu : t().a11y.openMenu"
-          [attr.aria-expanded]="isMenuOpen"
+          [attr.aria-label]="isMenuOpen() ? t().a11y.closeMenu : t().a11y.openMenu"
+          [attr.aria-expanded]="isMenuOpen()"
           aria-controls="header-mobile-menu"
         >
           <svg class="header-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            @if (isMenuOpen) {
+            @if (isMenuOpen()) {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             } @else {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -58,13 +58,13 @@
       </div>
     </div>
 
-    @if (isMenuOpen) {
+    @if (isMenuOpen()) {
       <div id="header-mobile-menu" class="header-mobile-menu">
         @for (item of [['home', t().nav.home], ['about', t().nav.about], ['projects', t().nav.projects], ['skills', t().nav.skills], ['experience', t().nav.experience], ['contact', t().nav.contact]]; track item[0]) {
           <button
             (click)="scrollTo(item[0])"
             class="header-mobile-link"
-            [attr.aria-current]="activeSection === item[0] ? 'true' : null"
+            [attr.aria-current]="activeSection() === item[0] ? 'true' : null"
           >
             {{ item[1] }}
           </button>

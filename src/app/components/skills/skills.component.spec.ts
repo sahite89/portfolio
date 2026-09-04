@@ -20,13 +20,13 @@ describe('SkillsComponent', () => {
   });
 
   it('should render all skills by default', () => {
-    expect(component.filteredSkills.length).toBe(component.skills.length);
+    expect(component.filteredSkills().length).toBe(component.skills.length);
   });
 
   it('should filter skills by category', () => {
     component.setCategory('backend');
-    expect(component.activeCategory).toBe('backend');
-    component.filteredSkills.forEach(s => {
+    expect(component.activeCategory()).toBe('backend');
+    component.filteredSkills().forEach(s => {
       expect(s.category).toBe('backend');
     });
   });

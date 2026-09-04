@@ -20,13 +20,13 @@ describe('ProjectsComponent', () => {
   });
 
   it('should render all projects by default', () => {
-    expect(component.filteredProjects.length).toBe(component.projects.length);
+    expect(component.filteredProjects().length).toBe(component.projects.length);
   });
 
   it('should filter projects by category', () => {
     component.setFilter('frontend');
-    expect(component.activeFilter).toBe('frontend');
-    component.filteredProjects.forEach(p => {
+    expect(component.activeFilter()).toBe('frontend');
+    component.filteredProjects().forEach(p => {
       expect(p.category).toBe('frontend');
     });
   });

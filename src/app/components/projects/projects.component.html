@@ -14,8 +14,8 @@
         <button
           (click)="setFilter(filter.key)"
           class="projects-filter-btn"
-          [ngClass]="activeFilter === filter.key ? 'projects-filter-btn--active' : ''"
-          [attr.aria-pressed]="activeFilter === filter.key"
+          [ngClass]="activeFilter() === filter.key ? 'projects-filter-btn--active' : ''"
+          [attr.aria-pressed]="activeFilter() === filter.key"
         >
           {{ filter.label }}
         </button>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="projects-grid">
-      @for (project of filteredProjects; track project.title; let i = $index) {
+      @for (project of filteredProjects(); track project.title; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 100" class="projects-card group">
           <div class="projects-card-cover">
             <div class="projects-card-icon-wrap">

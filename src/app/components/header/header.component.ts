@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslationService, Language } from '../../services/translation.service';
@@ -6,6 +6,7 @@ import { TranslationService, Language } from '../../services/translation.service
 @Component({
   selector: 'app-header',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -13,13 +14,13 @@ import { TranslationService, Language } from '../../services/translation.service
 export class HeaderComponent {
   translationService = inject(TranslationService);
   router = inject(Router);
-  isMenuOpen = false;
-  activeSection = 'home';
+  isMenuOpen = signal(false);
+  activeSection = signal('home');
 
   t = this.translationService.translate;
 
   toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen.update((v) => !v);
   }
 
   switchLanguage(lang: Language): void {
@@ -27,8 +28,8 @@ export class HeaderComponent {
   }
 
   scrollTo(section: string): void {
-    this.activeSection = section;
-    this.isMenuOpen = false;
+    this.activeSection.set(section);
+    this.isMenuOpen.set(false);
     this.router.navigate([], { fragment: section, replaceUrl: true });
   }
 }

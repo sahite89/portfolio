@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
@@ -7,6 +7,7 @@ import { TimelineItem } from '../../models/portfolio.model';
 @Component({
   selector: 'app-experience',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ScrollRevealDirective, NgClass],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',

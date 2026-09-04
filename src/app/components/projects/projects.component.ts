@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, inject, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
@@ -6,6 +6,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 @Component({
   selector: 'app-projects',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass, ScrollRevealDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
@@ -13,7 +14,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 export class ProjectsComponent {
   translationService = inject(TranslationService);
   t = this.translationService.translate;
-  activeFilter = 'all';
+  activeFilter = signal('all');
 
   projects = [
     {
@@ -38,21 +39,20 @@ export class ProjectsComponent {
     },
   ];
 
-  get filteredProjects() {
-    if (this.activeFilter === 'all') return this.projects;
-    return this.projects.filter((p) => p.category === this.activeFilter);
-  }
+  filteredProjects = computed(() => {
+    if (this.activeFilter() === 'all') return this.projects;
+    return this.projects.filter((p) => p.category === this.activeFilter());
+  });
 
   get filters() {
     return [
       { key: 'all', label: this.t().projects.all },
       { key: 'frontend', label: this.t().projects.frontend },
       { key: 'backend', label: this.t().projects.backend },
-      { key: 'fullstack', label: this.t().projects.fullstack },
     ];
   }
 
   setFilter(category: string): void {
-    this.activeFilter = category;
+    this.activeFilter.set(category);
   }
 }

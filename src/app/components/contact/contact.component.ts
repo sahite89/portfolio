@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DestroyRef, inject, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
 import { EmailService } from '../../services/email.service';
@@ -7,17 +7,22 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 @Component({
   selector: 'app-contact',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [FormsModule, ScrollRevealDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   private emailService = inject(EmailService);
+  private destroyRef = inject(DestroyRef);
   translationService = inject(TranslationService);
   t = this.translationService.translate;
-  submitted = false;
-  loading = false;
-  error = false;
+  submitted = signal(false);
+  loading = signal(false);
+  error = signal(false);
+
+  private successTimeout: ReturnType<typeof setTimeout> | null = null;
+  private errorTimeout: ReturnType<typeof setTimeout> | null = null;
 
   formData = {
     name: '',
@@ -25,12 +30,19 @@ export class ContactComponent {
     message: '',
   };
 
+  constructor() {
+    this.destroyRef.onDestroy(() => {
+      if (this.successTimeout) clearTimeout(this.successTimeout);
+      if (this.errorTimeout) clearTimeout(this.errorTimeout);
+    });
+  }
+
   async onSubmit(contactForm: NgForm): Promise<void> {
     if (contactForm.invalid) return;
 
-    this.loading = true;
-    this.error = false;
-    this.submitted = false;
+    this.loading.set(true);
+    this.error.set(false);
+    this.submitted.set(false);
 
     try {
       await this.emailService.sendContactEmail({
@@ -38,15 +50,15 @@ export class ContactComponent {
         fromEmail: this.formData.email,
         message: this.formData.message,
       });
-      this.submitted = true;
+      this.submitted.set(true);
       this.formData = { name: '', email: '', message: '' };
       contactForm.resetForm();
-      setTimeout(() => (this.submitted = false), 3000);
+      this.successTimeout = setTimeout(() => this.submitted.set(false), 3000);
     } catch {
-      this.error = true;
-      setTimeout(() => (this.error = false), 3000);
+      this.error.set(true);
+      this.errorTimeout = setTimeout(() => this.error.set(false), 3000);
     } finally {
-      this.loading = false;
+      this.loading.set(false);
     }
   }
 }

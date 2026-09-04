@@ -51,10 +51,10 @@
         </div>
         <button
           type="submit"
-          [disabled]="!contactForm.form.valid || loading"
+          [disabled]="!contactForm.form.valid || loading()"
           class="contact-submit"
         >
-          @if (loading) {
+          @if (loading()) {
             <svg class="contact-spinner" viewBox="0 0 24 24" aria-hidden="true">
               <circle class="contact-spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="contact-spinner-path" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
@@ -64,12 +64,12 @@
         </button>
       </form>
 
-      @if (submitted) {
+      @if (submitted()) {
         <div class="contact-feedback contact-feedback--success" role="status">
           {{ t().contact.success }}
         </div>
       }
-      @if (error) {
+      @if (error()) {
         <div class="contact-feedback contact-feedback--error" role="alert">
           {{ t().contact.error }}
         </div>

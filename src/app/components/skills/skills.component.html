@@ -14,8 +14,8 @@
         <button
           (click)="setCategory(cat.key)"
           class="skills-filter-btn"
-          [ngClass]="activeCategory === cat.key ? 'skills-filter-btn--active' : ''"
-          [attr.aria-pressed]="activeCategory === cat.key"
+          [ngClass]="activeCategory() === cat.key ? 'skills-filter-btn--active' : ''"
+          [attr.aria-pressed]="activeCategory() === cat.key"
         >
           {{ cat.label }}
         </button>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="skills-grid">
-      @for (skill of filteredSkills; track skill.name; let i = $index) {
+      @for (skill of filteredSkills(); track skill.name; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 80" class="skills-card group">
           <i [ngClass]="skill.deviconClass + ' colored skills-card-icon'"></i>
           <span class="skills-card-name">{{ skill.name }}</span>
