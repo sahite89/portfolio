@@ -9,75 +9,10 @@
   @include container;
 }
 
-.about-grid {
-  display: grid;
-  align-items: center;
-  gap: 3rem;
-
-  @include md {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Avatar / visual */
-.about-visual {
-  position: relative;
-}
-
-.about-avatar-wrap {
-  width: 16rem;
-  height: 16rem;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-
-  @include sm {
-    width: 20rem;
-    height: 20rem;
-  }
-}
-
-.about-avatar-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom right, var(--color-primary-500), var(--color-accent-500));
-  border-radius: 1rem;
-}
-
-.about-avatar-bg--rotate {
-  transform: rotate(6deg);
-  opacity: 0.2;
-}
-
-.about-avatar-bg--rotate-reverse {
-  transform: rotate(-3deg);
-  opacity: 0.4;
-}
-
-.about-avatar {
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-gray-800);
-  border-radius: 1rem;
-  overflow: hidden;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-avatar-icon {
-  width: 8rem;
-  height: 8rem;
-  color: var(--color-gray-600);
-}
-
-/* Texto */
 .about-title {
   font-size: 1.875rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 
   @include sm {
     font-size: 2.25rem;
@@ -88,7 +23,69 @@
   @include gradient-text;
 }
 
+.about-grid {
+  display: grid;
+  align-items: start;
+  gap: 3rem;
+
+  @include md {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 4rem;
+  }
+}
+
+/* Stats */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @include md {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem;
+  background-color: var(--color-gray-800-50);
+  border: 1px solid var(--color-gray-800);
+  border-radius: 0.75rem;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: var(--color-primary-500-20);
+  }
+}
+
+.about-stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  @include gradient-text;
+
+  @include sm {
+    font-size: 3rem;
+  }
+}
+
+.about-stat-label {
+  color: var(--color-gray-400);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Texto */
+.about-text {
+  display: flex;
+  flex-direction: column;
+}
+
 .about-paragraph {
+  text-align: justify;
   color: var(--color-gray-400);
   margin-bottom: 1rem;
   line-height: 1.625;
@@ -106,6 +103,7 @@
   border-radius: 9999px;
   border: 1px solid var(--color-gray-700);
   transition: all 0.3s;
+  align-self: flex-start;
 
   &:hover {
     background-color: var(--color-gray-700);

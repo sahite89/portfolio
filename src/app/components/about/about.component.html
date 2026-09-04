@@ -1,24 +1,22 @@
 <section id="about" [attr.aria-label]="t().a11y.about" class="about-section">
   <div class="about-container">
+    <h2 appScrollReveal="fadeInUp" class="about-title">
+      <span class="about-title-gradient">{{ t().about.title }}</span>
+    </h2>
+
     <div class="about-grid">
-      <div appScrollReveal="fadeInLeft" class="about-visual">
-        <div class="about-avatar-wrap">
-          <div class="about-avatar-bg about-avatar-bg--rotate"></div>
-          <div class="about-avatar-bg about-avatar-bg--rotate-reverse"></div>
-          <div class="about-avatar">
-            <svg class="about-avatar-icon" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
+      <div appScrollReveal="fadeInLeft" class="about-stats">
+        @for (stat of t().about.stats; track stat.label; let i = $index) {
+          <div class="about-stat">
+            <span class="about-stat-value">
+              {{ animatedValues()[i] === Infinity ? '∞' : animatedValues()[i] }}{{ animatedValues()[i] !== Infinity ? stat.suffix : '' }}
+            </span>
+            <span class="about-stat-label">{{ stat.label }}</span>
           </div>
-        </div>
+        }
       </div>
 
-      <div appScrollReveal="fadeInRight" [delay]="200">
-        <h2 class="about-title">
-          <span class="about-title-gradient">
-            {{ t().about.title }}
-          </span>
-        </h2>
+      <div appScrollReveal="fadeInRight" [delay]="200" class="about-text">
         @for (paragraph of t().about.description; track $index) {
           <p class="about-paragraph">{{ paragraph }}</p>
         }

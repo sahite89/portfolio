@@ -26,23 +26,31 @@ export const translationsEN: Translation = {
     contact: 'Contact',
   },
   hero: {
-    greeting: 'Hi, I\'m',
+    greeting: "Hi, I'm",
     title: 'Full Stack Developer',
-    subtitle: 'I build modern, scalable web applications with Angular, .NET and cloud technologies.',
+    stack: { dotnet: '.NET', angular: 'Angular' },
+    subtitle:
+      'I build software, keep learning and enjoy turning ideas into useful products.',
     cta: 'View projects',
   },
   about: {
     title: 'About me',
     description: [
-      'I\’m a Full Stack Software Developer specialized in .NET and Angular, with experience developing and maintaining web applications and corporate solutions within Agile environments.',
-      'Throughout my career, I have worked on projects related to retail, e-commerce, and internal systems, contributing to different areas of the development process, from APIs and backend services to frontend applications, databases, and system integrations. I\’m particularly interested in building clear, maintainable, and scalable solutions, with a strong focus on code quality and the long-term evolution of projects.',
-      'I\’m motivated by continuous learning, taking on new technical challenges, and exploring new technologies that allow me to keep growing professionally and bring value to every project I work on.',
+      'I\’m a Full Stack software developer specializing in .NET and Angular, with experience in the development and maintenance of web applications, REST APIs, and enterprise solutions.',
+      'I enjoy building scalable, maintainable, and quality-focused software, applying principles such as Clean Architecture, SOLID, and development best practices to create robust solutions that are easy to evolve.',
+      'I regularly work in Agile environments, collaborating with multidisciplinary teams and participating in both backend development and the creation of modern interfaces.',
+      'In addition to my professional experience, I enjoy exploring new technologies and developing personal projects that allow me to keep learning, experiment with new tools, and continuously improve as a developer.'
     ],
     downloadCv: 'Download CV',
+    stats: [
+      { value: 5, suffix: '+', label: 'Years of experience' },
+      { value: 10, suffix: '+', label: 'Technologies mastered' },
+      { value: Infinity, suffix: '', label: 'Learning' },
+    ],
   },
   projects: {
     title: 'Projects',
-    subtitle: 'Some of the work I\'ve done',
+    subtitle: "Some of the work I've done",
     all: 'All',
     frontend: 'Frontend',
     backend: 'Backend',
@@ -69,7 +77,7 @@ export const translationsEN: Translation = {
   },
   contact: {
     title: 'Contact',
-    subtitle: 'Have a project in mind? Let\'s talk',
+    subtitle: "Have a project in mind? Let's talk",
     name: 'Name',
     email: 'Email',
     message: 'Message',
@@ -85,6 +93,7 @@ export const translationsEN: Translation = {
   },
   seo: {
     title: 'Santiago Hijazo | Full Stack Developer',
-    description: 'Santiago Hijazo\'s portfolio — Full Stack Developer specialized in Angular, .NET and cloud technologies. Modern, scalable web applications.',
+    description:
+      "Santiago Hijazo's portfolio — Full Stack Developer specialized in Angular, .NET and cloud technologies. Modern, scalable web applications.",
   },
 };

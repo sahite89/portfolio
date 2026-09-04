@@ -28,18 +28,25 @@ export const translationsES: Translation = {
   hero: {
     greeting: 'Hola, soy',
     title: 'Desarrollador Full Stack',
+    stack: { dotnet: '.NET', angular: 'Angular' },
     subtitle:
-      'Construyo aplicaciones web modernas y escalables con Angular, .NET y tecnologías cloud.',
+      'Desarrollo software, sigo aprendiendo y disfruto convirtiendo ideas en productos útiles.',
     cta: 'Ver proyectos',
   },
   about: {
     title: 'Sobre mí',
     description: [
-      'Soy desarrollador de software Full Stack especializado en .NET y Angular, con experiencia en el desarrollo y mantenimiento de aplicaciones web y soluciones corporativas dentro de entornos Agile.',
-      'A lo largo de mi trayectoria he trabajado en proyectos relacionados con retail, e-commerce y sistemas internos, participando en diferentes partes del desarrollo, desde APIs y servicios backend hasta aplicaciones frontend, bases de datos e integración entre sistemas. Me interesa especialmente construir soluciones claras, mantenibles y escalables, cuidando tanto la calidad del código como la evolución del proyecto.',
-      'Me motiva seguir aprendiendo, afrontar nuevos retos técnicos y explorar nuevas tecnologías que me permitan continuar creciendo profesionalmente y aportar valor en cada proyecto.',
+      'Soy desarrollador de software Full Stack especializado en .NET y Angular, con experiencia en el desarrollo y mantenimiento de aplicaciones web, API REST y soluciones empresariales.',
+      'Me gusta construir software escalable, mantenible y orientado a la calidad, aplicando principios como Clean Architecture, SOLID y buenas prácticas de desarrollo para crear soluciones robustas y fáciles de evolucionar.',
+      'Trabajo habitualmente en entornos Agile colaborando con equipos multidisciplinares, participando tanto en el desarrollo backend como en la creación de interfaces modernas.',
+      'Además de mi experiencia profesional, disfruto explorando nuevas tecnologías y desarrollando proyectos personales que me permiten seguir aprendiendo, experimentar con nuevas herramientas y mejorar continuamente como desarrollador.',
     ],
     downloadCv: 'Descargar CV',
+    stats: [
+      { value: 5, suffix: '+', label: 'Años de experiencia' },
+      { value: 10, suffix: '+', label: 'Tecnologías dominadas' },
+      { value: Infinity, suffix: '', label: 'Aprendiendo' },
+    ],
   },
   projects: {
     title: 'Proyectos',
@@ -86,6 +93,7 @@ export const translationsES: Translation = {
   },
   seo: {
     title: 'Santiago Hijazo | Desarrollador Full Stack',
-    description: 'Portfolio de Santiago Hijazo — Desarrollador Full Stack especializado en Angular, .NET y tecnologías cloud. Aplicaciones web modernas y escalables.',
+    description:
+      'Portfolio de Santiago Hijazo — Desarrollador Full Stack especializado en Angular, .NET y tecnologías cloud. Aplicaciones web modernas y escalables.',
   },
 };

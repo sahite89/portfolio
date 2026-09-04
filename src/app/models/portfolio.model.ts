@@ -9,10 +9,26 @@ export interface TimelineItem {
   technologies?: string[];
 }
 
+export interface StatItem {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
 export interface Skill {
   name: string;
   deviconClass: string;
   category: 'frontend' | 'backend' | 'databases' | 'tools' | 'architectures';
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  category: 'frontend' | 'backend' | 'fullstack';
+  demoUrl: string;
+  githubUrl: string;
 }
 
 
@@ -44,6 +60,7 @@ export interface Translation {
   hero: {
     greeting: string;
     title: string;
+    stack: { dotnet: string; angular: string };
     subtitle: string;
     cta: string;
   };
@@ -51,6 +68,7 @@ export interface Translation {
     title: string;
     description: string[];
     downloadCv: string;
+    stats: StatItem[];
   };
   projects: {
     title: string;

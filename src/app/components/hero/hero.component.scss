@@ -106,6 +106,38 @@
   }
 }
 
+.hero-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-stack-tag {
+  padding: 0.375rem 1.25rem;
+  font-size: 0.875rem;
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 500;
+  background-color: var(--color-gray-800-50);
+  border: 1px solid var(--color-gray-700);
+  border-radius: 9999px;
+
+  @include sm {
+    font-size: 1rem;
+  }
+}
+
+.hero-stack-tag--dotnet {
+  color: var(--color-primary-300);
+  border-color: var(--color-primary-500-20);
+}
+
+.hero-stack-tag--angular {
+  color: var(--color-accent-300);
+  border-color: var(--color-accent-500-10);
+}
+
 .hero-subtitle {
   color: var(--color-gray-400);
   font-size: 0.875rem;
