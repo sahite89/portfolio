@@ -56,7 +56,9 @@ export const translationsEN: Translation = {
     all: 'All',
     frontend: 'Frontend',
     backend: 'Backend',
+    databases: 'Databases',
     tools: 'Tools',
+    architectures: 'Architectures',
   },
   experience: {
     title: 'Experience & Education',

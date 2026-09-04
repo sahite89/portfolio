@@ -9,6 +9,13 @@ export interface TimelineItem {
   technologies?: string[];
 }
 
+export interface Skill {
+  name: string;
+  deviconClass: string;
+  category: 'frontend' | 'backend' | 'databases' | 'tools' | 'architectures';
+}
+
+
 export interface Translation {
   a11y: {
     skipToContent: string;
@@ -61,7 +68,9 @@ export interface Translation {
     all: string;
     frontend: string;
     backend: string;
+    databases: string;
     tools: string;
+    architectures: string;
   };
   experience: {
     title: string;

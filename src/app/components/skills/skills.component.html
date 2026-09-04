@@ -25,7 +25,11 @@
     <div class="skills-grid">
       @for (skill of filteredSkills(); track skill.name; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 80" class="skills-card group">
-          <i [ngClass]="skill.deviconClass + ' colored skills-card-icon'"></i>
+          @if (skill.deviconClass) {
+            <i [ngClass]="skill.deviconClass + ' colored skills-card-icon'"></i>
+          } @else {
+            <span class="skills-card-icon skills-card-icon--text">{{ skill.name }}</span>
+          }
           <span class="skills-card-name">{{ skill.name }}</span>
         </div>
       }

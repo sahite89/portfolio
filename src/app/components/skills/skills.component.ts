@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, computed, inject, signal } from '@a
 import { NgClass } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { SKILLS } from '../../data/skills.data';
 
 @Component({
   selector: 'app-skills',
@@ -16,99 +17,16 @@ export class SkillsComponent {
   t = this.translationService.translate;
   activeCategory = signal('all');
 
-  skills = [
-    {
-      name: 'Angular',
-      level: 90,
-      deviconClass: 'devicon-angular-plain',
-      category: 'frontend',
-    },
-    {
-      name: 'TypeScript',
-      level: 85,
-      deviconClass: 'devicon-typescript-plain',
-      category: 'frontend',
-    },
-    {
-      name: 'JavaScript',
-      level: 90,
-      deviconClass: 'devicon-javascript-plain',
-      category: 'frontend',
-    },
-    {
-      name: 'HTML/CSS',
-      level: 95,
-      deviconClass: 'devicon-html5-plain devicon-css3-plain',
-      category: 'frontend',
-    },
-    {
-      name: '.Net',
-      level: 85,
-      deviconClass: 'devicon-dotnetcore-plain',
-      category: 'backend',
-    },
-    {
-      name: 'Entity Framework',
-      level: 80,
-      deviconClass: 'devicon-entityframeworkcore-plain colored',
-      category: 'backend',
-    },
-    {
-      name: 'SQL Server',
-      level: 80,
-      deviconClass: 'devicon-microsoftsqlserver-plain-wordmark',
-      category: 'backend',
-    },
-    {
-      name: 'PostgreSQL',
-      level: 75,
-      deviconClass: 'devicon-postgresql-plain',
-      category: 'backend',
-    },
-    {
-      name: 'Docker',
-      level: 65,
-      deviconClass: 'devicon-docker-plain',
-      category: 'backend',
-    },
-    {
-      name: 'Git',
-      level: 85,
-      deviconClass: 'devicon-git-plain',
-      category: 'tools',
-    },
-    {
-      name: 'VS Code',
-      level: 90,
-      deviconClass: 'devicon-vscode-plain',
-      category: 'tools',
-    },
-    {
-      name: 'Visual Studio',
-      level: 90,
-      deviconClass: 'devicon-visualstudio-plain colored',
-      category: 'tools',
-    },
-    {
-      name: 'GitLab',
-      level: 60,
-      deviconClass: 'devicon-gitlab-plain colored',
-      category: 'tools',
-    },
-    {
-      name: 'Jira',
-      level: 70,
-      deviconClass: 'devicon-jira-plain colored',
-      category: 'tools',
-    },
-  ];
+  skills = SKILLS;
 
   get categories() {
     return [
       { key: 'all', label: this.t().skills.all },
       { key: 'frontend', label: this.t().skills.frontend },
       { key: 'backend', label: this.t().skills.backend },
+      { key: 'databases', label: this.t().skills.databases },
       { key: 'tools', label: this.t().skills.tools },
+      { key: 'architectures', label: this.t().skills.architectures },
     ];
   }
 

@@ -31,6 +31,26 @@ describe('SkillsComponent', () => {
     });
   });
 
+  it('should filter skills by databases category', () => {
+    component.setCategory('databases');
+    expect(component.activeCategory()).toBe('databases');
+    component.filteredSkills().forEach(s => {
+      expect(s.category).toBe('databases');
+    });
+  });
+
+  it('should filter skills by architectures category', () => {
+    component.setCategory('architectures');
+    expect(component.activeCategory()).toBe('architectures');
+    component.filteredSkills().forEach(s => {
+      expect(s.category).toBe('architectures');
+    });
+  });
+
+  it('should have 18 total skills', () => {
+    expect(component.skills.length).toBe(18);
+  });
+
   it('should render skill elements', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const items = compiled.querySelectorAll('[class*="skills-card"]');
