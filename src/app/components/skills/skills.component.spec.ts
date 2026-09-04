@@ -19,41 +19,46 @@ describe('SkillsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render all skills by default', () => {
-    expect(component.filteredSkills().length).toBe(component.skills.length);
+  it('should have 6 skill categories', () => {
+    expect(component.skillsByCategory().length).toBe(6);
   });
 
-  it('should filter skills by category', () => {
-    component.setCategory('backend');
-    expect(component.activeCategory()).toBe('backend');
-    component.filteredSkills().forEach(s => {
-      expect(s.category).toBe('backend');
-    });
+  it('should include every skill across categories', () => {
+    const total = component.skillsByCategory().reduce((acc, g) => acc + g.skills.length, 0);
+    expect(total).toBe(component.skills.length);
   });
 
-  it('should filter skills by databases category', () => {
-    component.setCategory('databases');
-    expect(component.activeCategory()).toBe('databases');
-    component.filteredSkills().forEach(s => {
-      expect(s.category).toBe('databases');
-    });
+  it('should have 26 total skills', () => {
+    expect(component.skills.length).toBe(26);
   });
 
-  it('should filter skills by architectures category', () => {
-    component.setCategory('architectures');
-    expect(component.activeCategory()).toBe('architectures');
-    component.filteredSkills().forEach(s => {
-      expect(s.category).toBe('architectures');
-    });
+  it('should have 4 architecture skills', () => {
+    const arch = component.skillsByCategory().find((g) => g.key === 'architectures');
+    expect(arch?.skills.length).toBe(4);
   });
 
-  it('should have 18 total skills', () => {
-    expect(component.skills.length).toBe(18);
+  it('should have 4 practices skills', () => {
+    const practices = component.skillsByCategory().find((g) => g.key === 'practices');
+    expect(practices?.skills.length).toBe(4);
   });
 
-  it('should render skill elements', () => {
+  it('should render skill cards', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const items = compiled.querySelectorAll('[class*="skills-card"]');
-    expect(items.length).toBeGreaterThan(0);
+    const cards = compiled.querySelectorAll('.skills-card');
+    expect(cards.length).toBeGreaterThan(0);
+  });
+
+  it('should render architectures and practices skills as cards', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const chips = compiled.querySelectorAll('.skills-chip');
+    expect(chips.length).toBe(0);
+    const cards = compiled.querySelectorAll('.skills-card');
+    const names = component.skillsByCategory()
+      .filter((g) => g.key === 'architectures' || g.key === 'practices')
+      .flatMap((g) => g.skills.map((s) => s.name));
+    names.forEach((name) => {
+      const matcher = Array.from(cards).some((card) => card.textContent!.trim() === name);
+      expect(matcher).toBeTrue();
+    });
   });
 });

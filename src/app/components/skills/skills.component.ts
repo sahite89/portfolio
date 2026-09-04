@@ -1,8 +1,17 @@
-import { Component, ChangeDetectionStrategy, computed, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { SKILLS } from '../../data/skills.data';
+
+type CategoryKey = 'frontend' | 'backend' | 'databases' | 'tools' | 'architectures' | 'practices';
+
+interface SkillGroup {
+  key: CategoryKey;
+  label: string;
+  iconClass: string;
+  skills: (typeof SKILLS)[number][];
+}
 
 @Component({
   selector: 'app-skills',
@@ -15,27 +24,24 @@ import { SKILLS } from '../../data/skills.data';
 export class SkillsComponent {
   translationService = inject(TranslationService);
   t = this.translationService.translate;
-  activeCategory = signal('all');
-
   skills = SKILLS;
 
-  get categories() {
-    return [
-      { key: 'all', label: this.t().skills.all },
-      { key: 'frontend', label: this.t().skills.frontend },
-      { key: 'backend', label: this.t().skills.backend },
-      { key: 'databases', label: this.t().skills.databases },
-      { key: 'tools', label: this.t().skills.tools },
-      { key: 'architectures', label: this.t().skills.architectures },
-    ];
-  }
+  private categoryMeta: { key: CategoryKey; iconClass: string }[] = [
+    { key: 'frontend', iconClass: 'devicon-html5-plain' },
+    { key: 'backend', iconClass: 'devicon-dot-net-plain' },
+    { key: 'databases', iconClass: 'devicon-azuresqldatabase-plain' },
+    { key: 'tools', iconClass: 'devicon-git-plain' },
+    { key: 'architectures', iconClass: 'devicon-gitbook-original' },
+    { key: 'practices', iconClass: 'devicon-jira-plain' },
+  ];
 
-  filteredSkills = computed(() => {
-    if (this.activeCategory() === 'all') return this.skills;
-    return this.skills.filter((s) => s.category === this.activeCategory());
+  skillsByCategory = computed<SkillGroup[]>(() => {
+    const t = this.t();
+    return this.categoryMeta.map((meta) => ({
+      key: meta.key,
+      label: t.skills[meta.key],
+      iconClass: meta.iconClass,
+      skills: this.skills.filter((s) => s.category === meta.key),
+    }));
   });
-
-  setCategory(category: string): void {
-    this.activeCategory.set(category);
-  }
 }

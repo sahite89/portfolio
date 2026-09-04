@@ -60,13 +60,13 @@ export const translationsES: Translation = {
   },
   skills: {
     title: 'Habilidades',
-    subtitle: 'Tecnologías y herramientas con las que trabajo',
-    all: 'Todas',
+    subtitle: 'Tecnologías y prácticas que utilizo para desarrollar software.',
     frontend: 'Frontend',
     backend: 'Backend',
     databases: 'Bases de datos',
     tools: 'Herramientas',
-    architectures: 'Arquitecturas',
+    architectures: 'Arquitectura',
+    practices: 'Prácticas',
   },
   experience: {
     title: 'Experiencia y Formación',

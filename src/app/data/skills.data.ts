@@ -17,13 +17,23 @@ export const SKILLS: Skill[] = [
     category: 'frontend',
   },
   {
-    name: 'HTML/CSS',
+    name: 'HTML',
     deviconClass: 'devicon-html5-plain devicon-css3-plain',
     category: 'frontend',
   },
   {
-    name: '.Net',
-    deviconClass: 'devicon-dotnetcore-plain',
+    name: 'SCSS/SASS',
+    deviconClass: 'devicon-sass-original',
+    category: 'frontend',
+  },
+  {
+    name: '.NET',
+    deviconClass: 'devicon-dot-net-plain-wordmark',
+    category: 'backend',
+  },
+  {
+    name: 'C#',
+    deviconClass: 'devicon-csharp-plain',
     category: 'backend',
   },
   {
@@ -32,8 +42,13 @@ export const SKILLS: Skill[] = [
     category: 'backend',
   },
   {
+    name: 'Swagger/OpenAPI',
+    deviconClass: 'devicon-swagger-plain',
+    category: 'backend',
+  },
+  {
     name: 'SQL Server',
-    deviconClass: 'devicon-microsoftsqlserver-plain-wordmark',
+    deviconClass: 'devicon-microsoftsqlserver-plain',
     category: 'databases',
   },
   {
@@ -59,6 +74,11 @@ export const SKILLS: Skill[] = [
   {
     name: 'Visual Studio',
     deviconClass: 'devicon-visualstudio-plain colored',
+    category: 'tools',
+  },
+  {
+    name: 'Postman',
+    deviconClass: 'devicon-postman-plain',
     category: 'tools',
   },
   {
@@ -90,5 +110,25 @@ export const SKILLS: Skill[] = [
     name: 'Microservicios',
     deviconClass: '',
     category: 'architectures',
+  },
+  {
+    name: 'Unit Testing',
+    deviconClass: '',
+    category: 'practices',
+  },
+  {
+    name: 'Code Review',
+    deviconClass: '',
+    category: 'practices',
+  },
+  {
+    name: 'Agile / Scrum',
+    deviconClass: '',
+    category: 'practices',
+  },
+  {
+    name: 'CI/CD',
+    deviconClass: '',
+    category: 'practices',
   },
 ];

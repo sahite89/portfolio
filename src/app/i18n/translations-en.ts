@@ -39,7 +39,7 @@ export const translationsEN: Translation = {
       'I\’m a Full Stack software developer specializing in .NET and Angular, with experience in the development and maintenance of web applications, REST APIs, and enterprise solutions.',
       'I enjoy building scalable, maintainable, and quality-focused software, applying principles such as Clean Architecture, SOLID, and development best practices to create robust solutions that are easy to evolve.',
       'I regularly work in Agile environments, collaborating with multidisciplinary teams and participating in both backend development and the creation of modern interfaces.',
-      'In addition to my professional experience, I enjoy exploring new technologies and developing personal projects that allow me to keep learning, experiment with new tools, and continuously improve as a developer.'
+      'In addition to my professional experience, I enjoy exploring new technologies and developing personal projects that allow me to keep learning, experiment with new tools, and continuously improve as a developer.',
     ],
     downloadCv: 'Download CV',
     stats: [
@@ -60,13 +60,13 @@ export const translationsEN: Translation = {
   },
   skills: {
     title: 'Skills',
-    subtitle: 'Technologies and tools I work with',
-    all: 'All',
+    subtitle: 'Technologies & practices I use to build software.',
     frontend: 'Frontend',
     backend: 'Backend',
     databases: 'Databases',
     tools: 'Tools',
-    architectures: 'Architectures',
+    architectures: 'Architecture',
+    practices: 'Practices',
   },
   experience: {
     title: 'Experience & Education',

@@ -9,30 +9,24 @@
       <p class="skills-subtitle">{{ t().skills.subtitle }}</p>
     </div>
 
-    <div appScrollReveal="fadeInUp" [delay]="100" class="skills-filters">
-      @for (cat of categories; track cat.key) {
-        <button
-          (click)="setCategory(cat.key)"
-          class="skills-filter-btn"
-          [ngClass]="activeCategory() === cat.key ? 'skills-filter-btn--active' : ''"
-          [attr.aria-pressed]="activeCategory() === cat.key"
-        >
-          {{ cat.label }}
-        </button>
-      }
-    </div>
+    @for (group of skillsByCategory(); track group.key) {
+      <div appScrollReveal="fadeInUp" class="skills-category">
+        <h3 class="skills-category-heading">
+          <i [ngClass]="group.iconClass + ' colored skills-category-icon'"></i>
+          <span>{{ group.label }}</span>
+        </h3>
 
-    <div class="skills-grid">
-      @for (skill of filteredSkills(); track skill.name; let i = $index) {
-        <div appScrollReveal="fadeInUp" [delay]="i * 80" class="skills-card group">
-          @if (skill.deviconClass) {
-            <i [ngClass]="skill.deviconClass + ' colored skills-card-icon'"></i>
-          } @else {
-            <span class="skills-card-icon skills-card-icon--text">{{ skill.name }}</span>
+        <div class="skills-grid">
+          @for (skill of group.skills; track skill.name) {
+            <div class="skills-card group">
+              @if (skill.deviconClass) {
+                <i [ngClass]="skill.deviconClass + ' colored skills-card-icon'"></i>
+              }
+              <span class="skills-card-name">{{ skill.name }}</span>
+            </div>
           }
-          <span class="skills-card-name">{{ skill.name }}</span>
         </div>
-      }
-    </div>
+      </div>
+    }
   </div>
 </section>

@@ -18,7 +18,7 @@ export interface StatItem {
 export interface Skill {
   name: string;
   deviconClass: string;
-  category: 'frontend' | 'backend' | 'databases' | 'tools' | 'architectures';
+  category: 'frontend' | 'backend' | 'databases' | 'tools' | 'architectures' | 'practices';
 }
 
 export interface Project {
@@ -83,12 +83,12 @@ export interface Translation {
   skills: {
     title: string;
     subtitle: string;
-    all: string;
     frontend: string;
     backend: string;
     databases: string;
     tools: string;
     architectures: string;
+    practices: string;
   };
   experience: {
     title: string;
