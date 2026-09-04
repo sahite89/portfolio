@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, computed, inject, signal } from '@a
 import { NgClass } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { PROJECTS } from '../../data/projects.data';
 
 @Component({
   selector: 'app-projects',
@@ -16,28 +17,7 @@ export class ProjectsComponent {
   t = this.translationService.translate;
   activeFilter = signal('all');
 
-  projects = [
-    {
-      title: 'MangaTracker API',
-      description:
-        'API RESTful para gestión de colecciones Manga con autenticación JWT, CRUD completo y documentación con Swagger.',
-      technologies: ['.NET', 'SQL Server', 'Swagger'],
-      image: '',
-      category: 'backend',
-      demoUrl: '',
-      githubUrl: 'https://github.com/sahite89/MangaTracker',
-    },
-    {
-      title: 'Portfolio Website',
-      description:
-        'Portfolio personal moderno con modo oscuro, animaciones y soporte multi-idioma.',
-      technologies: ['Angular', 'TypeScript'],
-      image: '',
-      category: 'frontend',
-      demoUrl: 'https://santihijazo.netlify.app',
-      githubUrl: 'https://github.com/sahite89/portfolio',
-    },
-  ];
+  projects = PROJECTS;
 
   filteredProjects = computed(() => {
     if (this.activeFilter() === 'all') return this.projects;
