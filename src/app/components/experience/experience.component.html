@@ -9,64 +9,159 @@
       <p class="experience-subtitle">{{ t().experience.subtitle }}</p>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-line"></div>
-
-      @for (item of timeline; track item.title; let i = $index) {
-        <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
-          <div class="timeline-row"
-               [ngClass]="i % 2 === 0 ? '' : 'timeline-row--reverse'">
-
-            <div class="timeline-spacer"></div>
-
-            <div class="timeline-marker"
-                 [ngClass]="item.type === 'work' ? 'timeline-marker--work' : 'timeline-marker--education'">
-              @if (item.type === 'work') {
-                <svg class="timeline-marker-icon timeline-marker-icon--work" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              } @else {
-                <svg class="timeline-marker-icon timeline-marker-icon--education" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z"/>
-                </svg>
-              }
-            </div>
-
-            <div class="timeline-card">
-              <div class="timeline-card-badge-row">
-                <span class="timeline-badge"
-                      [ngClass]="item.type === 'work' ? 'timeline-badge--work' : 'timeline-badge--education'">
-                  {{ item.type === 'work' ? t().experience.work : t().experience.education }}
-                </span>
-                <span class="timeline-dates">
-                  {{ item.startDate }} — {{ item.endDate ?? t().experience.present }}
-                </span>
-              </div>
-
-              <h3 class="timeline-title">{{ item.title }}</h3>
-              <p class="timeline-org">{{ item.organization }} · {{ item.location }}</p>
-
-              <ul class="timeline-description">
-                @for (desc of item.description; track $index) {
-                  <li class="timeline-desc-item">
-                    <span class="timeline-desc-bullet"
-                          [ngClass]="item.type === 'education' ? 'timeline-desc-bullet--accent' : ''"></span>
-                    {{ desc }}
-                  </li>
-                }
-              </ul>
-
-              @if (item.technologies) {
-                <div class="timeline-tech">
-                  @for (tech of item.technologies; track tech) {
-                    <span class="timeline-tech-tag">{{ tech }}</span>
-                  }
-                </div>
-              }
-            </div>
+    <div class="experience-columns">
+      <div class="experience-column experience-column--work">
+        <div appScrollReveal="fadeInUp" class="timeline-column-header">
+          <div class="timeline-column-icon">
+            <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
           </div>
+          <h3 class="timeline-column-title">{{ t().experience.workTitle }}</h3>
         </div>
-      }
+
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          @for (item of workExperience; track item.title; let i = $index) {
+            <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
+              <div class="timeline-row">
+                <div class="timeline-marker">
+                  <svg class="timeline-marker-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+
+                <article class="timeline-card">
+                  <p class="timeline-dates">{{ item.startDate }} — {{ item.endDate ?? t().experience.present }}</p>
+                  <h4 class="timeline-title">{{ item.title }}</h4>
+                  <p class="timeline-org">{{ item.organization }} · {{ item.location }}</p>
+
+                  @if (item.description) {
+                    <p class="timeline-desc-text">{{ item.description }}</p>
+                  }
+
+                  @if (item.highlights?.length) {
+                    <div class="timeline-highlights">
+                      <ul class="timeline-highlights-list">
+                        @for (hl of item.highlights; track hl) {
+                          <li class="timeline-highlight-item">
+                            <span class="timeline-highlight-bullet"></span>
+                            {{ hl }}
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  }
+
+                  @if (item.technologies) {
+                    <div class="timeline-tech">
+                      @for (tech of item.technologies; track tech) {
+                        <span class="timeline-tech-tag">{{ tech }}</span>
+                      }
+                    </div>
+                  }
+                </article>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="experience-column experience-column--education">
+        <div appScrollReveal="fadeInUp" class="timeline-column-header">
+          <div class="timeline-column-icon">
+            <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z"/>
+            </svg>
+          </div>
+          <h3 class="timeline-column-title">{{ t().experience.educationTitle }}</h3>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          @for (item of education; track item.title; let i = $index) {
+            <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
+              <div class="timeline-row">
+                <div class="timeline-marker">
+                  <svg class="timeline-marker-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z"/>
+                  </svg>
+                </div>
+
+                <article class="timeline-card">
+                  <p class="timeline-dates">{{ item.startDate }} — {{ item.endDate ?? t().experience.present }}</p>
+                  <h4 class="timeline-title">{{ item.title }}</h4>
+                  <p class="timeline-org">{{ item.organization }} · {{ item.location }}</p>
+
+                  @if (item.description) {
+                    <p class="timeline-desc-text">{{ item.description }}</p>
+                  }
+                </article>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="experience-column experience-column--certifications">
+        <div appScrollReveal="fadeInUp" class="timeline-column-header">
+          <div class="timeline-column-icon">
+            <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="timeline-column-title">{{ t().experience.certificationsTitle }}</h3>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          @for (item of certifications; track item.title; let i = $index) {
+            <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
+              <div class="timeline-row">
+                <div class="timeline-marker">
+                  <svg class="timeline-marker-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+
+                <article class="timeline-card">
+                  <p class="timeline-dates">{{ item.startDate }} — {{ item.endDate ?? t().experience.present }}</p>
+                  <h4 class="timeline-title">{{ item.title }}</h4>
+                  <p class="timeline-org">{{ item.organization }} · {{ item.location }}</p>
+
+                  @if (item.description) {
+                    <p class="timeline-desc-text">{{ item.description }}</p>
+                  }
+
+                  @if (item.highlights?.length) {
+                    <div class="timeline-highlights">
+                      <ul class="timeline-highlights-list">
+                        @for (hl of item.highlights; track hl) {
+                          <li class="timeline-highlight-item">
+                            <span class="timeline-highlight-bullet"></span>
+                            {{ hl }}
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  }
+
+                  @if (item.technologies) {
+                    <div class="timeline-tech">
+                      @for (tech of item.technologies; track tech) {
+                        <span class="timeline-tech-tag">{{ tech }}</span>
+                      }
+                    </div>
+                  }
+                </article>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>

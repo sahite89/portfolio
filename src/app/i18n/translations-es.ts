@@ -71,8 +71,9 @@ export const translationsES: Translation = {
     title: 'Experiencia y Formación',
     subtitle: 'Mi trayectoria profesional y académica',
     present: 'Presente',
-    work: 'Trabajo',
-    education: 'Estudio',
+    workTitle: 'Experiencia laboral',
+    educationTitle: 'Formación académica',
+    certificationsTitle: 'Certificaciones',
   },
   contact: {
     title: 'Contacto',

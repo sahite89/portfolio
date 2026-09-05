@@ -1,11 +1,12 @@
 export interface TimelineItem {
-  type: 'work' | 'education';
+  type: 'work' | 'education' | 'certification';
   title: string;
   organization: string;
   location: string;
   startDate: string;
   endDate: string | null;
-  description: string[];
+  description: string;
+  highlights?: string[];
   technologies?: string[];
 }
 
@@ -94,8 +95,9 @@ export interface Translation {
     title: string;
     subtitle: string;
     present: string;
-    work: string;
-    education: string;
+    workTitle: string;
+    educationTitle: string;
+    certificationsTitle: string;
   };
   contact: {
     title: string;

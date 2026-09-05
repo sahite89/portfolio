@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     description:
       'Portafolio moderno diseñado para mostrar proyectos, habilidades técnicas y trayectoria profesional',
     highlights: [
-      'Interfaz bilingüe (español e inglés) con cambio dinámico de idioma.',
+      'Interfaz bilingüe (español e inglés) con cambio dinámico de idioma',
       'Modo oscuro y animaciones de desplazamiento con soporte para reduced motion',
       'Diseño responsive optimizado para escritorio, tablet y dispositivos móviles',
       //'Optimizado para SEO con datos estructurados y Open Graph.',
@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'MangaTracker API',
-    description: 'Backend para una aplicación de seguimiento de manga.',
+    description: 'Backend para una aplicación de seguimiento de manga',
     highlights: [
       'Arquitectura limpia con una clara separación de responsabilidades para facilitar el mantenimiento y la escalabilidad',
       'Autenticación y autorización mediante JWT para un acceso seguro a la API',
