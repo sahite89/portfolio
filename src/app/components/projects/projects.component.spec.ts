@@ -19,21 +19,27 @@ describe('ProjectsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render all projects by default', () => {
-    expect(component.filteredProjects().length).toBe(component.projects.length);
-  });
-
-  it('should filter projects by category', () => {
-    component.setFilter('frontend');
-    expect(component.activeFilter()).toBe('frontend');
-    component.filteredProjects().forEach(p => {
-      expect(p.category).toBe('frontend');
-    });
+  it('should render all projects', () => {
+    expect(component.projects.length).toBeGreaterThan(0);
   });
 
   it('should render project cards', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const cards = compiled.querySelectorAll('[class*="projects-card"]');
     expect(cards.length).toBeGreaterThan(0);
+  });
+
+  it('should render highlight lists for projects that define them', () => {
+    const withHighlights = component.projects.find(p => p.highlights?.length);
+    expect(withHighlights).toBeTruthy();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const highlights = compiled.querySelectorAll('.projects-card-highlight');
+    expect(highlights.length).toBeGreaterThan(0);
+  });
+
+  it('should render a type badge for each project', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const badges = compiled.querySelectorAll('.projects-card-badge');
+    expect(badges.length).toBe(component.projects.length);
   });
 });

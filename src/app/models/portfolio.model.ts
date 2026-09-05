@@ -24,6 +24,7 @@ export interface Skill {
 export interface Project {
   title: string;
   description: string;
+  highlights?: string[];
   technologies: string[];
   image: string;
   category: 'frontend' | 'backend' | 'fullstack';
@@ -73,12 +74,11 @@ export interface Translation {
   projects: {
     title: string;
     subtitle: string;
-    all: string;
+    demo: string;
+    code: string;
     frontend: string;
     backend: string;
     fullstack: string;
-    demo: string;
-    code: string;
   };
   skills: {
     title: string;

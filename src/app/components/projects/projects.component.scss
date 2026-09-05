@@ -32,29 +32,6 @@
   color: var(--color-gray-400);
 }
 
-.projects-filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 3rem;
-}
-
-.projects-filter-btn {
-  padding: 0.5rem 1.25rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  @include pill-inactive;
-}
-
-.projects-filter-btn--active {
-  @include pill-active;
-}
-
 .projects-grid {
   display: grid;
   gap: 1.5rem;
@@ -64,7 +41,7 @@
   }
 
   @include lg {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -82,12 +59,43 @@
 }
 
 .projects-card-cover {
+  position: relative;
   height: 12rem;
   background: linear-gradient(to bottom right, var(--color-gray-800), var(--color-gray-900));
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--color-gray-950-80),
+      transparent 30%,
+      transparent 70%,
+      var(--color-gray-950-80)
+    );
+    pointer-events: none;
+  }
+}
+
+.projects-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-primary-200);
+  background-color: var(--color-gray-900-50);
+  border: 1px solid var(--color-primary-500-25);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
 }
 
 .projects-card-icon-wrap {
@@ -136,6 +144,35 @@
   color: var(--color-gray-400);
   font-size: 0.875rem;
   margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.projects-card-highlights {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.projects-card-highlight {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--color-gray-400);
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--color-primary-500);
+  }
 }
 
 .projects-card-tech {

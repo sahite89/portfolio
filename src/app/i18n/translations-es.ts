@@ -51,12 +51,11 @@ export const translationsES: Translation = {
   projects: {
     title: 'Proyectos',
     subtitle: 'Algunos de los trabajos que he realizado',
-    all: 'Todos',
+    demo: 'Demo',
+    code: 'Código',
     frontend: 'Frontend',
     backend: 'Backend',
     fullstack: 'Full Stack',
-    demo: 'Demo',
-    code: 'Código',
   },
   skills: {
     title: 'Habilidades',

@@ -9,23 +9,11 @@
       <p class="projects-subtitle">{{ t().projects.subtitle }}</p>
     </div>
 
-    <div appScrollReveal="fadeInUp" [delay]="100" class="projects-filters">
-      @for (filter of filters; track filter.key) {
-        <button
-          (click)="setFilter(filter.key)"
-          class="projects-filter-btn"
-          [ngClass]="activeFilter() === filter.key ? 'projects-filter-btn--active' : ''"
-          [attr.aria-pressed]="activeFilter() === filter.key"
-        >
-          {{ filter.label }}
-        </button>
-      }
-    </div>
-
     <div class="projects-grid">
-      @for (project of filteredProjects(); track project.title; let i = $index) {
+      @for (project of projects; track project.title; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 100" class="projects-card group">
           <div class="projects-card-cover">
+            <span class="projects-card-badge">{{ categoryLabel(project.category) }}</span>
             @if (project.image) {
               <img [src]="project.image" [alt]="project.title" loading="lazy" class="projects-card-image" />
             } @else {
@@ -39,6 +27,13 @@
           <div class="projects-card-body">
             <h3 class="projects-card-title">{{ project.title }}</h3>
             <p class="projects-card-description">{{ project.description }}</p>
+            @if (project.highlights?.length) {
+              <ul class="projects-card-highlights">
+                @for (item of project.highlights; track $index) {
+                  <li class="projects-card-highlight">{{ item }}</li>
+                }
+              </ul>
+            }
             <div class="projects-card-tech">
               @for (tech of project.technologies; track tech) {
                 <span class="projects-card-tech-tag">{{ tech }}</span>
