@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
     description:
       'Portfolio personal moderno con modo oscuro, animaciones y soporte multi-idioma.',
     technologies: ['Angular', 'TypeScript'],
-    image: '',
+    image: '/projects/portfolio.webp',
     category: 'frontend',
     demoUrl: 'https://santihijazo.netlify.app',
     githubUrl: 'https://github.com/sahite89/portfolio',

@@ -26,11 +26,15 @@
       @for (project of filteredProjects(); track project.title; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 100" class="projects-card group">
           <div class="projects-card-cover">
-            <div class="projects-card-icon-wrap">
-              <svg class="projects-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
-            </div>
+            @if (project.image) {
+              <img [src]="project.image" [alt]="project.title" loading="lazy" class="projects-card-image" />
+            } @else {
+              <div class="projects-card-icon-wrap">
+                <svg class="projects-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              </div>
+            }
           </div>
           <div class="projects-card-body">
             <h3 class="projects-card-title">{{ project.title }}</h3>
