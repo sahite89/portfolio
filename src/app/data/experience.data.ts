@@ -28,7 +28,7 @@ export const WORK_EXPERIENCE: TimelineItem[] = [
   },
   {
     type: 'work',
-    title: 'Desarrollador Backend .NET',
+    title: 'Backend Developer',
     organization: 'Plusfresc Supermercats',
     location: 'Lleida, España',
     startDate: 'Ago 2020',
@@ -53,7 +53,7 @@ export const WORK_EXPERIENCE: TimelineItem[] = [
   },
   {
     type: 'work',
-    title: 'Desarrollador Web',
+    title: 'Web Developer',
     organization: 'Semic',
     location: 'Lleida, España',
     startDate: 'Abr 2018',
@@ -69,7 +69,7 @@ export const WORK_EXPERIENCE: TimelineItem[] = [
   },
   {
     type: 'work',
-    title: 'Desarrollador Junior',
+    title: 'Junior Developer',
     organization: 'Handle Software Company',
     location: 'Lleida, España',
     startDate: 'Jun 2017',
