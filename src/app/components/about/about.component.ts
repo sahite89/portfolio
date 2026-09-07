@@ -7,7 +7,9 @@ import {
   OnDestroy,
   ElementRef,
   ChangeDetectorRef,
+  PLATFORM_ID,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { DestroyRef } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
@@ -26,6 +28,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   private el = inject(ElementRef<HTMLElement>);
   private cdr = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
+  private platformId = inject(PLATFORM_ID);
 
   animatedValues = signal<number[]>([]);
   readonly Infinity = Infinity;
@@ -37,6 +40,11 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     const stats = this.t().about.stats;
     this.animatedValues.set(stats.map((s) => (Number.isFinite(s.value) ? 0 : s.value)));
+
+    if (!isPlatformBrowser(this.platformId)) {
+      this.animatedValues.set(stats.map((s) => s.value));
+      return;
+    }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       this.animatedValues.set(stats.map((s) => s.value));

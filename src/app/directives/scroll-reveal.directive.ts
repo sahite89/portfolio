@@ -1,4 +1,5 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appScrollReveal]',
@@ -8,11 +9,15 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
   @Input() appScrollReveal: 'fadeInUp' | 'fadeInLeft' | 'fadeInRight' | 'fadeInScale' = 'fadeInUp';
   @Input() delay = 0;
 
+  private el = inject(ElementRef<HTMLElement>);
+  private platformId = inject(PLATFORM_ID);
   private observer: IntersectionObserver | null = null;
 
-  constructor(private el: ElementRef<HTMLElement>) {}
-
   ngOnInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       this.el.nativeElement.style.opacity = '1';
       return;
