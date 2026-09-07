@@ -118,5 +118,6 @@ export interface Translation {
   seo: {
     title: string;
     description: string;
+    jobTitle: string;
   };
 }

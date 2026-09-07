@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  siteUrl: 'https://santihijazo.netlify.app',
   emailjs: {
     serviceId: 'service_6ea74mc',
     templateId: 'template_ux8bag8',

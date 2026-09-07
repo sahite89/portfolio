@@ -15,7 +15,7 @@
           <div class="projects-card-cover">
             <span class="projects-card-badge">{{ categoryLabel(project.category) }}</span>
             @if (project.image) {
-              <img [src]="project.image" [alt]="project.title" loading="lazy" class="projects-card-image" />
+              <img [src]="project.image" alt="" loading="lazy" decoding="async" width="1912" height="903" class="projects-card-image" />
             } @else {
               <div class="projects-card-icon-wrap">
                 <svg class="projects-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">

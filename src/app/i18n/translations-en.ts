@@ -95,5 +95,6 @@ export const translationsEN: Translation = {
     title: 'Santiago Hijazo | Full Stack Developer',
     description:
       "Santiago Hijazo's portfolio — Full Stack Developer specialized in Angular, .NET and cloud technologies. Modern, scalable web applications.",
+    jobTitle: 'Full Stack Developer',
   },
 };
