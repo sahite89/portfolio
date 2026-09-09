@@ -1,33 +1,47 @@
 # Portfolio — Santiago Hijazo Tejada
 
-Portfolio personal SPA construido con Angular 19. Single-page scrolling sin routing, con soporte bilingüe (ES/EN), animaciones de scroll y formulario de contacto funcional.
+![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-CF649B?style=for-the-badge&logo=sass&logoColor=white)
+![SSG](https://img.shields.io/badge/SSG-Prerendered-00C853?style=for-the-badge&logo=digitalocean&logoColor=white)
+![Netlify](https://img.shields.io/badge/Deployed%20on-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+
+Personal developer portfolio — a fully prerendered single-page application built with Angular 19, featuring bilingual support (ES/EN), dark/light theme toggle, scroll animations, and a functional contact form.
+
+**[Live Demo →](https://santihijazo.netlify.app)**
 
 ## Tech Stack
 
-- **Angular 19** — componentes standalone, signals, `inject()` para DI
-- **TypeScript 5.7** — modo strict habilitado
-- **SCSS** — CSS custom properties, mixins de responsive y utilidades
-- **EmailJS** — envío de emails desde el formulario de contacto (free tier)
-- **Karma + Jasmine** — testing unitario
+- **Angular 19.2.21** — standalone components, signals, `inject()` DI, `@angular/ssr` for static site generation
+- **TypeScript 5.7** — strict mode enabled
+- **SCSS** — CSS custom properties, responsive mixins, theme-aware tokens
+- **EmailJS** — contact form email delivery (free tier)
+- **Karma + Jasmine** — unit testing with headless Chrome
 
-## Características
+## Features
 
-- Single-page scrolling con navegación por fragments
-- i18n bilingüe (Español / Inglés) basado en signals
-- Animaciones de scroll reveal (IntersectionObserver)
-- Diseño responsive mobile-first
-- Dark theme
-- Formulario de contacto funcional con EmailJS
-- Descarga de CV en PDF
+- **Static Site Generation (SSG)** — fully prerendered at build time via `@angular/ssr`, no server runtime needed
+- **Dark/Light theme** — toggle with `localStorage` persistence, FOUC-safe inline script, SSR-compatible
+- **Bilingual i18n (ES/EN)** — signal-based translations with reactive rendering on language switch
+- **Scroll reveal animations** — IntersectionObserver-based with `prefers-reduced-motion` support
+- **SEO optimized** — dynamic `<title>`, meta description, Open Graph + Twitter Card tags, canonical URL, JSON-LD structured data (`Person`)
+- **Project screenshots** — webp images in dark full-bleed style with cover overlays
+- **Animated stat counters** — requestAnimationFrame-driven with `IntersectionObserver` triggers
+- **Skills by category** — 26 skills grouped into 6 categories (frontend, backend, databases, tools, architectures, practices)
+- **3-timeline experience section** — work history, education, and certifications in stacked timelines
+- **Contact form** — template-driven forms with EmailJS integration and auto-dismiss feedback
+- **CV download** — PDF download button in the about section
+- **Mobile-first responsive** — fluid layout with breakpoints at `sm`, `md`, `lg`, `xl`
+- **Accessibility** — skip link, ARIA labels, `aria-current` nav, `focus-visible` outlines, landmark regions
 
-## Arranque rápido
+## Getting Started
 
-### Prerequisitos
+### Prerequisites
 
 - Node.js 18+
 - Angular CLI 19 (`npm install -g @angular/cli`)
 
-### Instalación
+### Installation
 
 ```bash
 git clone https://github.com/sahite89/portfolio.git
@@ -35,21 +49,23 @@ cd portfolio
 npm install
 ```
 
-### Desarrollo
+### Development
 
 ```bash
 ng serve
 ```
 
-Abrí `http://localhost:4200/`. La app se recarga automáticamente al modificar archivos.
+Open `http://localhost:4200/`. The app reloads automatically on file changes.
 
-### Build de producción
+### Production Build
 
 ```bash
 ng build
 ```
 
-Los artifacts se generan en `dist/portfolio`. Incluye file replacement automático de environment files.
+Output is generated in `dist/portfolio/browser/` as a fully prerendered static site. The build uses `outputMode: "static"` — there is **no server bundle** in the output. Deploy the `dist/portfolio/browser/` directory to any static host.
+
+> **Note:** Angular is pinned to **19.2.21** because versions 19.2.22–19.2.25 have a prerendering regression ([angular-cli#33184](https://github.com/angular/angular-cli/issues/33184)) where `allowedHosts` validation rejects prerender requests.
 
 ### Tests
 
@@ -57,68 +73,96 @@ Los artifacts se generan en `dist/portfolio`. Incluye file replacement automáti
 ng test
 ```
 
-Ejecuta tests unitarios con Karma y Jasmine en Chrome headless.
+Runs unit tests with Karma + Jasmine in headless Chrome.
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 src/
 ├── app/
 │   ├── components/
-│   │   ├── header/        # Barra de navegación fija con logo, links y toggle de idioma
-│   │   ├── hero/          # Sección principal con nombre, título y CTAs
-│   │   ├── about/         # Bio personal y descarga de CV
-│   │   ├── projects/      # Grid de proyectos con filtros por categoría
-│   │   ├── skills/        # Grid de habilidades con nivel de proficiencia
-│   │   ├── experience/    # Timeline de experiencia laboral y educación
-│   │   ├── contact/       # Formulario de contacto y links sociales
-│   │   └── footer/        # Footer con copyright dinámico
+│   │   ├── header/          # Fixed navbar with logo, nav links, theme + language toggles
+│   │   ├── hero/            # Landing section with name, title, and CTA
+│   │   ├── about/           # Bio, animated stat counters, and CV download
+│   │   ├── projects/        # Project cards with screenshots, type badges, and tech tags
+│   │   ├── skills/          # Skills grid grouped by 6 categories with DevIcons
+│   │   ├── experience/      # Stacked timelines: work, education, certifications
+│   │   ├── contact/         # Contact form and social links
+│   │   └── footer/          # Footer with dynamic copyright year
 │   ├── services/
-│   │   ├── translation.service.ts  # i18n basado en signals
-│   │   └── email.service.ts        # Servicio de envío de emails (EmailJS)
+│   │   ├── translation.service.ts  # Signal-based i18n (ES/EN toggle)
+│   │   ├── email.service.ts        # EmailJS wrapper (lazy browser-only init)
+│   │   ├── seo.service.ts          # Dynamic meta tags, OG, Twitter Card, JSON-LD
+│   │   └── theme.service.ts        # Dark/light toggle with localStorage persistence
 │   ├── directives/
-│   │   └── scroll-reveal.directive.ts  # Animaciones IntersectionObserver
+│   │   └── scroll-reveal.directive.ts  # IntersectionObserver reveal animations
+│   ├── data/
+│   │   └── skills.data.ts       # Skill definitions (26 items with categories)
 │   ├── i18n/
-│   │   ├── translations-es.ts  # Traducciones en español
-│   │   └── translations-en.ts  # Traducciones en inglés
+│   │   ├── translations-es.ts   # Spanish translations (full UI text + data)
+│   │   └── translations-en.ts   # English translations (full UI text + data)
 │   ├── models/
-│   │   └── portfolio.model.ts  # Interfaces: Project, Skill, TimelineItem, Translation
-│   ├── app.component.ts        # Root component (importa todas las secciones)
-│   ├── app.config.ts           # Configuración de la app (router, zone)
-│   └── app.routes.ts           # Routes vacías (SPA sin routing)
+│   │   └── portfolio.model.ts   # Interfaces: Project, Skill, TimelineItem, StatItem, Translation
+│   ├── app.component.ts         # Root component (imports all sections)
+│   ├── app.config.ts            # Client config (router, zone, hydration)
+│   ├── app.config.server.ts     # Server config (SSR rendering)
+│   └── app.routes.ts            # Empty routes (single-page, no routing)
+├── main.ts                       # Client bootstrap
+├── main.server.ts                # Server bootstrap
+├── server.ts                     # Express + CommonEngine SSR server
 ├── environments/
-│   ├── environment.ts          # Variables de entorno (dev)
-│   └── environment.prod.ts     # Variables de entorno (producción)
-├── _variables.scss             # CSS custom properties (colores, sombras)
-├── _mixins.scss                # Mixins SCSS (breakpoints, containers, botones)
-└── styles.scss                 # Estilos globales, keyframe animations, utilidades
+│   ├── environment.ts            # Dev environment (EmailJS config, siteUrl)
+│   └── environment.prod.ts       # Prod environment (file-replaced at build)
+├── _variables.scss               # CSS custom properties (color palette, shadows)
+├── _mixins.scss                  # SCSS mixins (breakpoints, containers, buttons)
+├── styles.scss                   # Global styles, keyframes, utilities
+└── index.html                    # Entry HTML with inline theme script, meta tags
 public/
-├── favicon.ico, favicon-*.png  # Favicons multi-resolución
-├── logo-sh.svg                 # Logo SVG (monograma SH)
-└── cv-santiago-Hijazo.pdf      # CV descargable
+├── favicon.ico, favicon-*.png    # Multi-resolution favicons (16–512px)
+├── logo-sh.svg                   # SH monogram logo
+├── og-image.png                  # Open Graph image (1200×630)
+├── CV_SantiagoHijazo.pdf         # Downloadable CV
+├── robots.txt                    # SEO robots file
+├── sitemap.xml                   # SEO sitemap
+└── projects/
+    ├── portfolio.webp            # Portfolio project screenshot
+    └── MangaTrackerAPI.webp      # Manga Tracker API screenshot
 ```
 
-## Arquitectura
+## Architecture
 
-- **Standalone components** — todos los componentes son standalone, sin NgModules
-- **DI vía `inject()`** — inyección de dependencias moderna, sin constructores
-- **i18n basado en signals** — `TranslationService` usa signals de Angular para traducciones reactivas. Toggle ES/EN desde el header
-- **Environment files** — credenciales de EmailJS centralizadas en `src/environments/`, con file replacement automático para builds de producción
-- **ScrollRevealDirective** — directiva reutilizable `[appScrollReveal]` que acepta nombre de animación y delay
+- **Standalone components** — all components are standalone, no NgModules
+- **DI via `inject()`** — modern dependency injection without constructors
+- **OnPush change detection** — all components use `ChangeDetectionStrategy.OnPush`
+- **Signals + computed** — mutable UI state in `signal()`, derived data in `computed()` (skills categories, project lists, translation-derived collections)
+- **SSR-safe lifecycle guards** — browser-only APIs (`window`, `IntersectionObserver`, `requestAnimationFrame`, `matchMedia`) guarded with `isPlatformBrowser(PLATFORM_ID)`
+- **ThemeService** — signal-based, SSR-safe, persists to `localStorage`, toggles `light` class on `<html>`
+- **SeoService** — dynamically updates `<title>`, meta, OG tags, Twitter Card, `lang` attribute, and injects JSON-LD `Person` schema on language switch
+- **TranslationService** — signal-based i18n toggling between `translations-es.ts` (default) and `translations-en.ts`
+- **Environment files** — EmailJS credentials and `siteUrl` centralized in `src/environments/`, swapped automatically via `fileReplacements` in production builds
 
-## Estilo
+## Styling
 
-- **CSS custom properties** — 128 tokens de color definidos en `_variables.scss`: paleta Indigo (primaria) y Fuchsia (acento), con variantes alpha para transparencias
-- **Mixins SCSS** — breakpoints responsive (`sm`, `md`, `lg`, `xl`), containers, gradient text, botones, pills de filtro, cards
-- **Keyframe animations** — 8 animaciones globales: `fadeInUp`, `fadeInLeft`, `fadeInRight`, `fadeInScale`, `fadeIn`, `gradient`, `float`, `glow`, `bounce`, `spin`
-- **Fuentes** — Inter (300-800) para UI, Fira Code (400-500) para código
-- **DevIcons** — iconos de habilidades vía CDN
+- **CSS Custom Properties** — color tokens defined in `_variables.scss`: Indigo primary palette, Fuchsia accent, gray scale with alpha variants, theme-aware overrides for light mode
+- **SCSS Mixins** — responsive breakpoints (`sm`, `md`, `lg`, `xl`), containers, gradient text, buttons, filter pills, cards
+- **Dark/Light Theme** — dark is default (`<html class="dark">`); light mode remaps gray tokens via `html.light` overrides while brand colors stay identical
+- **Keyframe Animations** — `fadeInUp`, `fadeInLeft`, `fadeInRight`, `fadeInScale`, `fadeIn`, `gradient`, `float`, `glow`, `bounce`, `spin`
+- **Fonts** — Inter (300–800) for UI, Fira Code (400–500) for code, loaded from Google Fonts CDN
+- **DevIcons** — skill icons via jsDelivr CDN
+
+## Deployment
+
+The project is deployed on **[Netlify](https://santihijazo.netlify.app)**.
+
+1. Run `ng build` to produce the prerendered static output
+2. Deploy the `dist/portfolio/browser/` directory to Netlify (or any static host)
+3. No server runtime or SSR process needed — all pages are pre-rendered HTML
 
 ## Scripts
 
-| Comando | Descripción |
+| Command | Description |
 |---------|-------------|
-| `ng serve` | Servidor de desarrollo en localhost:4200 |
-| `ng build` | Build de producción a `dist/portfolio` |
-| `ng test` | Tests unitarios con Karma + Jasmine |
-| `ng generate component <nombre>` | Generar nuevo componente |
+| `ng serve` | Dev server at localhost:4200 (SSR dev mode) |
+| `ng build` | Production build — prerenders to `dist/portfolio/browser/` |
+| `ng test` | Unit tests with Karma + Jasmine (headless Chrome) |
+| `ng generate component <name>` | Scaffold a new standalone component |
