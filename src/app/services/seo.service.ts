@@ -32,8 +32,8 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:image:height', content: '630' });
     this.meta.updateTag({ property: 'og:image:alt', content: seo.description });
 
-    const ogLocale = lang === 'es' ? 'es_MX' : 'en_US';
-    const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_MX';
+    const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
+    const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     this.meta.updateTag({ property: 'og:locale', content: ogLocale });
     this.meta.updateTag({ property: 'og:locale:alternate', content: ogLocaleAlt });
 
@@ -69,11 +69,14 @@ export class SeoService {
         '.NET',
         'C#',
         'SQL Server',
-        'Node.js',
         'JavaScript',
         'HTML',
-        'CSS',
+        'SCSS',
         'REST APIs',
+        'Entity Framework',
+        'Clean Architecture',
+        'SOLID Principles',
+        'Unit Testing',
         'Cloud Computing',
       ],
       email: 'santihijazo@gmail.com',

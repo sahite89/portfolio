@@ -40,6 +40,8 @@ export interface Translation {
     menuToggle: string;
     openMenu: string;
     closeMenu: string;
+    switchToLight: string;
+    switchToDark: string;
     logo: string;
     github: string;
     linkedin: string;

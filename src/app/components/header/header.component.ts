@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/cor
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslationService, Language } from '../../services/translation.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { TranslationService, Language } from '../../services/translation.service
 })
 export class HeaderComponent {
   translationService = inject(TranslationService);
+  themeService = inject(ThemeService);
   router = inject(Router);
   isMenuOpen = signal(false);
   activeSection = signal('home');
@@ -25,6 +27,10 @@ export class HeaderComponent {
 
   switchLanguage(lang: Language): void {
     this.translationService.switchLanguage(lang);
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 
   scrollTo(section: string): void {

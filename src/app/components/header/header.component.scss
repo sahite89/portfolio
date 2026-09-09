@@ -101,6 +101,31 @@
   color: #fff;
 }
 
+.header-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--color-gray-400);
+  transition: all 0.3s;
+
+  &:hover {
+    color: var(--color-gray-200);
+    background-color: var(--color-gray-800);
+  }
+}
+
+.header-theme-icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .header-menu-toggle {
   background: none;
   border: none;
@@ -109,7 +134,7 @@
   color: var(--color-gray-300);
 
   &:hover {
-    color: #fff;
+    color: var(--color-gray-100);
   }
 
   @include md {
@@ -144,7 +169,7 @@
   transition: color 0.3s, background-color 0.3s;
 
   &:hover {
-    color: #fff;
+    color: var(--color-gray-100);
     background-color: var(--color-gray-800);
   }
 }

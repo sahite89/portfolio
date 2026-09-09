@@ -81,4 +81,54 @@
   --shadow-primary-5-25: 0 10px 15px -3px rgba(99, 102, 241, 0.25), 0 4px 6px -4px rgba(99, 102, 241, 0.25);
   --shadow-accent-5-20: 0 10px 15px -3px rgba(217, 70, 239, 0.2), 0 4px 6px -4px rgba(217, 70, 239, 0.2);
   --shadow-green-5-20: 0 10px 15px -3px rgba(34, 197, 94, 0.2), 0 4px 6px -4px rgba(34, 197, 94, 0.2);
+
+  /* Media/cover surfaces: intentionally stay dark in BOTH themes so the
+     dark portfolio screenshots blend into the card cover uniformly. */
+  --color-cover-fill: #111827;
+  --color-cover-overlay: rgba(3, 7, 18, 0.8);
+  --color-cover-badge-bg: rgba(3, 7, 18, 0.5);
+
+  /* Tech-tag label: light indigo on dark chips (dark), dark indigo on light chips (light) */
+  --color-tech-text: #a5b4fc;
+  --color-tech-text-accent: #f0abfc;
+}
+
+/* Light theme. Brand tokens (indigo/fuchsia/green/red) stay identical; only
+   the gray + alpha + shadow tokens are remapped so every component that uses
+   them adapts automatically. */
+html.light {
+  /* Gray (inverted) */
+  --color-gray-100: #111827;
+  --color-gray-200: #1f2937;
+  --color-gray-300: #374151;
+  --color-gray-400: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #9ca3af;
+  --color-gray-700: #d1d5db;
+  --color-gray-800: #e5e7eb;
+  --color-gray-900: #f3f4f6;
+  --color-gray-950: #f9fafb;
+
+  /* Gray with alpha */
+  --color-gray-800-50: rgba(255, 255, 255, 0.6);
+  --color-gray-800-40: rgba(255, 255, 255, 0.4);
+  --color-gray-800-30: rgba(255, 255, 255, 0.5);
+  --color-gray-900-50: rgba(17, 24, 39, 0.06);
+  --color-gray-900-30: rgba(17, 24, 39, 0.04);
+  --color-gray-900-20: rgba(17, 24, 39, 0.03);
+  --color-gray-950-80: rgba(255, 255, 255, 0.8);
+
+  /* Hero/background tints: lighter on a light page so the gradients stay airy */
+  --color-primary-950-40: rgba(99, 102, 241, 0.08);
+  --color-accent-950-40: rgba(217, 70, 239, 0.08);
+
+  /* Tech-tag label on light chips */
+  --color-tech-text: #4338ca;
+  --color-tech-text-accent: #a21caf;
+
+  /* Shadows: softer on light */
+  --shadow-primary-5-20: 0 10px 15px -3px rgba(99, 102, 241, 0.12), 0 4px 6px -4px rgba(99, 102, 241, 0.12);
+  --shadow-primary-5-25: 0 10px 15px -3px rgba(99, 102, 241, 0.15), 0 4px 6px -4px rgba(99, 102, 241, 0.15);
+  --shadow-accent-5-20: 0 10px 15px -3px rgba(217, 70, 239, 0.12), 0 4px 6px -4px rgba(217, 70, 239, 0.12);
+  --shadow-green-5-20: 0 10px 15px -3px rgba(34, 197, 94, 0.12), 0 4px 6px -4px rgba(34, 197, 94, 0.12);
 }

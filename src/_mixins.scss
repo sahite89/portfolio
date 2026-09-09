@@ -112,7 +112,7 @@ $breakpoint-xl: 1280px;
   transition: all 0.3s;
 
   &:hover {
-    color: #fff;
+    color: var(--color-gray-200);
     border-color: var(--color-gray-500);
   }
 }

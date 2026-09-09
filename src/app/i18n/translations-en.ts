@@ -6,6 +6,8 @@ export const translationsEN: Translation = {
     menuToggle: 'Menu',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    switchToLight: 'Switch to light mode',
+    switchToDark: 'Switch to dark mode',
     logo: 'Santiago Hijazo — Home',
     github: 'GitHub',
     linkedin: 'LinkedIn',
