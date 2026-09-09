@@ -10,7 +10,7 @@
     </div>
 
     <div class="projects-grid">
-      @for (project of projects; track project.title; let i = $index) {
+      @for (project of projects(); track $index; let i = $index) {
         <div appScrollReveal="fadeInUp" [delay]="i * 100" class="projects-card group">
           <div class="projects-card-cover">
             <span class="projects-card-badge">{{ categoryLabel(project.category) }}</span>

@@ -82,6 +82,7 @@ export interface Translation {
     frontend: string;
     backend: string;
     fullstack: string;
+    list: Project[];
   };
   skills: {
     title: string;
@@ -100,6 +101,9 @@ export interface Translation {
     workTitle: string;
     educationTitle: string;
     certificationsTitle: string;
+    work: TimelineItem[];
+    education: TimelineItem[];
+    certifications: TimelineItem[];
   };
   contact: {
     title: string;

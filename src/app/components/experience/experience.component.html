@@ -23,7 +23,7 @@
         <div class="timeline">
           <div class="timeline-line"></div>
 
-          @for (item of workExperience; track item.title; let i = $index) {
+          @for (item of workExperience(); track $index; let i = $index) {
             <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
               <div class="timeline-row">
                 <div class="timeline-marker">
@@ -44,7 +44,7 @@
                   @if (item.highlights?.length) {
                     <div class="timeline-highlights">
                       <ul class="timeline-highlights-list">
-                        @for (hl of item.highlights; track hl) {
+                        @for (hl of item.highlights; track $index) {
                           <li class="timeline-highlight-item">
                             <span class="timeline-highlight-bullet"></span>
                             {{ hl }}
@@ -81,7 +81,7 @@
         <div class="timeline">
           <div class="timeline-line"></div>
 
-          @for (item of education; track item.title; let i = $index) {
+          @for (item of education(); track $index; let i = $index) {
             <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
               <div class="timeline-row">
                 <div class="timeline-marker">
@@ -118,7 +118,7 @@
         <div class="timeline">
           <div class="timeline-line"></div>
 
-          @for (item of certifications; track item.title; let i = $index) {
+          @for (item of certifications(); track $index; let i = $index) {
             <div appScrollReveal="fadeInUp" [delay]="i * 150" class="timeline-item">
               <div class="timeline-row">
                 <div class="timeline-marker">
@@ -139,7 +139,7 @@
                   @if (item.highlights?.length) {
                     <div class="timeline-highlights">
                       <ul class="timeline-highlights-list">
-                        @for (hl of item.highlights; track hl) {
+                        @for (hl of item.highlights; track $index) {
                           <li class="timeline-highlight-item">
                             <span class="timeline-highlight-bullet"></span>
                             {{ hl }}

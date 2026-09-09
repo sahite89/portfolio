@@ -91,6 +91,7 @@
   /* Tech-tag label: light indigo on dark chips (dark), dark indigo on light chips (light) */
   --color-tech-text: #a5b4fc;
   --color-tech-text-accent: #f0abfc;
+  --color-tech-text-red: #ef4444;
 }
 
 /* Light theme. Brand tokens (indigo/fuchsia/green/red) stay identical; only
@@ -125,6 +126,7 @@ html.light {
   /* Tech-tag label on light chips */
   --color-tech-text: #4338ca;
   --color-tech-text-accent: #a21caf;
+  --color-tech-text-red: #b91c1c;
 
   /* Shadows: softer on light */
   --shadow-primary-5-20: 0 10px 15px -3px rgba(99, 102, 241, 0.12), 0 4px 6px -4px rgba(99, 102, 241, 0.12);

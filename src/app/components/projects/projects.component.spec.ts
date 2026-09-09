@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProjectsComponent } from './projects.component';
+import { TranslationService } from '../../services/translation.service';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
@@ -20,7 +21,7 @@ describe('ProjectsComponent', () => {
   });
 
   it('should render all projects', () => {
-    expect(component.projects.length).toBeGreaterThan(0);
+    expect(component.projects().length).toBeGreaterThan(0);
   });
 
   it('should render project cards', () => {
@@ -30,7 +31,7 @@ describe('ProjectsComponent', () => {
   });
 
   it('should render highlight lists for projects that define them', () => {
-    const withHighlights = component.projects.find(p => p.highlights?.length);
+    const withHighlights = component.projects().find(p => p.highlights?.length);
     expect(withHighlights).toBeTruthy();
     const compiled = fixture.nativeElement as HTMLElement;
     const highlights = compiled.querySelectorAll('.projects-card-highlight');
@@ -40,6 +41,17 @@ describe('ProjectsComponent', () => {
   it('should render a type badge for each project', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const badges = compiled.querySelectorAll('.projects-card-badge');
-    expect(badges.length).toBe(component.projects.length);
+    expect(badges.length).toBe(component.projects().length);
+  });
+
+  it('should render projects in English after switching language', () => {
+    const service = TestBed.inject(TranslationService);
+    service.switchLanguage('en');
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const title = compiled.querySelector('.projects-card-title');
+    expect(title?.textContent).toContain('Portfolio Website');
+    const desc = compiled.querySelector('.projects-card-description');
+    expect(desc?.textContent).toContain('modern portfolio');
   });
 });
